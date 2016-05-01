@@ -28,19 +28,19 @@
 	$denied = array('gbatemp.eof', 'bearcave', 'ndscheats-staff', '*');
  # the error returned when someone tries accessing one of the above channels
  #   feel free to add assorted slurs here
-	$denymsg = array('Access Denied');
+	$denymsg = array('Access Denied.');
  # the path to the log directory itself
 	$logpath = ('/');
  # the colour scheme
 	$scheme = array('background' => '#FFFFFF', 'foreground' => '#000000', 'link' => '#0000FF');
  # the default channel
-  $chan = 'gbatemp.net';
+  $chan = '#surro';
 ## Config is over, now onto the script itself.
  # is the channel set?
 	if(isset($_GET['chan'])) {
 		foreach($denied as $denied) {
 			if($_GET['chan'] == $denied) {
-				die('Access Denied');
+				die('Access Denied.');
 			}
 			else {
 				$chan = str_replace($chdir, '', $_GET['chan']);
