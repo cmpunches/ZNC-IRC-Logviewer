@@ -23,18 +23,18 @@ $chan = '#surro';
 
 # is the channel set?
 if(isset($_GET['chan'])) 
+{
+	foreach($denied as $denied) 
 	{
-		foreach($denied as $denied) 
+		if($_GET['chan'] == $denied) 
 		{
-			if($_GET['chan'] == $denied) 
-			{
-				die('Access Denied.');
-			} else {
-				$chan = str_replace($chdir, '', $_GET['chan']);
-			}
+			die('Access Denied.');
+		} else {
+			$chan = str_replace($chdir, '', $_GET['chan']);
 		}
 	}
-	$remove = array('.log', $logpath . '#' . $chan . '_');
+}
+$remove = array('.log', $logpath . '#' . $chan . '_');
 # date handling, this pretty much determines whether a log is being displayed or whether channel logs are being listed.
 	if(isset($_GET['date'])) {
 		$logfile = ($logpath . '#' . $chan . '_' . str_replace($chdir, '', $_GET['date']) . '.log');
