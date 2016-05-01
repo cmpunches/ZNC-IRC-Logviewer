@@ -5,16 +5,21 @@ require_once('inc/smarty.php');
 # $host/$users/$networks/$channels/$logs
 $host = $_SERVER['HTTP_HOST'];
 
+function getUsers( $ZNCLogRoot )
+{
+	return array_values( 
+		array_diff( 
+			scandir( $ZNCLogRoot ), 
+			array( '..', '.' )
+		) 
+	);	
+}
+
 $root_logpath = '../IRC';
 
-$users = array_values( 
-	array_diff( 
-		scandir( $root_logpath ), 
-		array( '..', '.' )
-	) 
-);
 
-print_r($users);
+
+print_r( getUsers( $root_logpath ) );
 
 
 $smarty->display('index.tpl');
