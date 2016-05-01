@@ -6,6 +6,7 @@ print('
 	</head>
 	<body>
 		git hooks dont work
+		and i dont know why:
 	</body>
 </html>
 ');
