@@ -3,9 +3,9 @@
 require_once('inc/smarty.php');
 
 # domain/$users/$networks/$channels/$logs
-$host = $_SERVER[HTTP_HOST];
+$host = $_SERVER['HTTP_HOST'];
 
-
+echo($host);
 $smarty->display('index.tpl');
 
 
