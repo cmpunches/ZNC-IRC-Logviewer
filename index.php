@@ -2,8 +2,9 @@
 # Displays index with pulldown menu items for user, network, and channel.
 require_once('inc/smarty.php');
 
-# $host/$users/$networks/$channels/$logs
-$host = $_SERVER['HTTP_HOST'];
+# $users/$networks/$channels/$logs
+
+$root_logpath = '../IRC';
 
 function getUsers( $ZNCLogRoot )
 {
@@ -15,11 +16,19 @@ function getUsers( $ZNCLogRoot )
 	);	
 }
 
-$root_logpath = '../IRC';
+function getNetworksForUser( $user, $ZNCLogRoot )
+{
+	return array_values(
+		array_diff(
+			scandir( $ZNCLogRoot . '/' . $user ),
+			array( '..', '.' )
+		)
+	);
+}
 
 
 
-print_r( getUsers( $root_logpath ) );
+print_r( getNetworksForUser( 'phanes', $root_logpath ) );
 
 
 $smarty->display('index.tpl');
