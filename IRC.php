@@ -5,7 +5,8 @@ print('
 	<head>
 	</head>
 	<body>
-		this is the body.
+		git hooks work
+		git hooks work
 	</body>
 </html>
 ');
