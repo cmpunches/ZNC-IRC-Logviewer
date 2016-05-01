@@ -9,6 +9,7 @@ $smarty->template_dir = 'views';
 $smarty->compile_dir = 'tmp';
 
 $smarty->display('index.tpl');
+$smarty->display('index.tpl');
 
 
 ?>
