@@ -26,11 +26,27 @@ function getNetworksForUser( $user, $ZNCLogRoot )
 	);
 }
 
+function getChannelsForNetworkForUser( $user, $network, $ZNCLogRoot )
+{
+	return array_values(
+		array_diff(
+			scandir( $ZNCLogRoot . '/' . $user . '/' . $network ),
+			array( '..', '.' )
+		)
+	);
+}
+
+# build a multidimensional key/value set using:
+# @users
+#	@networks
+#		@channels
+#			@dates
 
 
-print_r( getNetworksForUser( 'phanes', $root_logpath ) );
 
+print_r( getChannelsForNetworkForUser( 'phanes', 'freenode', $root_logpath ) );
 
+# it's coming
 $smarty->display('index.tpl');
 
 
