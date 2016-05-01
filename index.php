@@ -5,10 +5,13 @@ require_once('inc/smarty.php');
 # $host/$users/$networks/$channels/$logs
 $host = $_SERVER['HTTP_HOST'];
 
+$root_logpath = '../IRC';
+
+$users = scandir($root_logpath);
+
+print_r($users);
 
 
-
-echo($host);
 $smarty->display('index.tpl');
 
 
