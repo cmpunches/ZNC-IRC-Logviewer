@@ -7,7 +7,7 @@ $host = $_SERVER['HTTP_HOST'];
 
 $root_logpath = '../IRC';
 
-$users = scandir($root_logpath);
+$users = array_diff( scandir( $root_logpath ), array( '..', '.' ) );
 
 print_r($users);
 
