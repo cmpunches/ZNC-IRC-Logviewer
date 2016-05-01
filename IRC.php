@@ -5,8 +5,7 @@ print('
 	<head>
 	</head>
 	<body>
-		git hooks work
-		git hooks work
+		git hooks dont work
 	</body>
 </html>
 ');
