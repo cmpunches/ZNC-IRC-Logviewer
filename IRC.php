@@ -5,21 +5,7 @@ print('
 	<head>
 	</head>
 	<body>
-		git hooks dont work
-		and i dont know why
-		so im adding lines for the hooks
-		and even 
-		line 12
-		line 13
-		line 14
-		can i write?
-		can i write?
-		can i write?
-		can i write?
-		can i write?
-		can i write?
-		can i write?
-		can i write?
+		git hooks work
 	</body>
 </html>
 ');
