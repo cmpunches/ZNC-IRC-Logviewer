@@ -1,48 +1,35 @@
 <?php
-/*
-	ZNC-LogViewer Version 1.0 - 15/03/2011
-	A simple script to display ZNC logs online, with basic HTML parsing.
-	For changelog, please see my git repo, at http://git.antoligy.com
-	Copyright (c) 2011 Alex "Antoligy" Wilson <antoligy@antoligy.com>
-	Permission is hereby granted, free of charge, to any person obtaining a copy
-	of this software and associated documentation files (the "Software"), to deal
-	in the Software without restriction, including without limitation the rights
-	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-	copies of the Software, and to permit persons to whom the Software is
-	furnished to do so, subject to the following conditions:
-	The above copyright notice and this permission notice shall be included in
-	all copies or substantial portions of the Software.
-	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-	AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-	THE SOFTWARE.
-*/
-## Firstly, configuration.
- # this would appear to be basic security, you don't need to touch this.
-	$chdir = array('..', '/', '~', '#', '\',);
- # channels where logs will not be publicly viewable, should be obvious what
- #   what this is useful for.
-	$denied = array('gbatemp.eof', 'bearcave', 'ndscheats-staff', '*');
- # the error returned when someone tries accessing one of the above channels
- #   feel free to add assorted slurs here
-	$denymsg = array('Access Denied.');
- # the path to the log directory itself
-	$logpath = ('/');
- # the colour scheme
-	$scheme = array('background' => '#FFFFFF', 'foreground' => '#000000', 'link' => '#0000FF');
- # the default channel
-  $chan = '#surro';
+$chdir = array('..', '/', '~', '#', '\\',);
+
+# channels where logs will not be publiacly viewable, should be obvious what
+#   what this is useful for.
+$denied = array('gbatemp.eof', 'bearcave', 'ndscheats-staff', '*');
+
+# the error returned when someone tries accessing one of the above channels
+#   feel free to add assorted slurs here
+
+$denymsg = array('Access Denied.');
+# the path to the log directory itself
+
+$logpath = ('/');
+# the colour scheme
+
+$scheme = array('background' => '#FFFFFF', 'foreground' => '#000000', 'link' => '#0000FF');
+
+# the default channel
+$chan = '#surro';
+
 ## Config is over, now onto the script itself.
- # is the channel set?
-	if(isset($_GET['chan'])) {
-		foreach($denied as $denied) {
-			if($_GET['chan'] == $denied) {
+
+# is the channel set?
+if(isset($_GET['chan'])) 
+	{
+		foreach($denied as $denied) 
+		{
+			if($_GET['chan'] == $denied) 
+			{
 				die('Access Denied.');
-			}
-			else {
+			} else {
 				$chan = str_replace($chdir, '', $_GET['chan']);
 			}
 		}
