@@ -22,16 +22,13 @@ switch( trim( $payload ) )
 		}
 		break;
 	case "networks":
-		echo("line 25<br>" );
 		if ( isset( $_GET["user"] ) ) 
 		{
 			$user = $_GET["user"];
 			var_dump($user);
-			echo("line 27<br>" );
 			$networks = getNetworksForUser( $user );
 			foreach ( $networks as $network )
 			{
-				echo("line 31<br>" );
 				echo( "$network" );
 				if ( count( $networks ) > 1 )
 				{
