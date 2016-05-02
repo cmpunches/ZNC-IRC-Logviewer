@@ -5,6 +5,7 @@
 $log_root = '../IRC';
 
 $payload = htmlspecialchars( $_GET["payload"] );
+echo("Payload is $payload");
 
 switch( $payload ) 
 {
