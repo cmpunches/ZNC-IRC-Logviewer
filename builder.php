@@ -9,9 +9,13 @@ $payload = htmlspecialchars( $_GET["payload"] );
 switch( trim( $payload ) ) 
 {
 	case "users":
-		foreach ( getUsers() as $user)
+		$users = getUsers();
+		foreach ( $users as $user )
 		{
-			echo("$user,");
+			echo( "$user" );
+			if (count( $users ) > 1) {
+				echo ",";
+			}
 		}
 		break;
 	case "networks":
@@ -26,9 +30,9 @@ switch( trim( $payload ) )
 
 function getUsers()
 {
-	$unfilteredUserList = scandir( $GLOBALS['log_root'] );
-	$unsortedUserList = array_diff( $unfilteredUserList, array( '..', '.' ) );
-	$userList = array_values( $unsortedUserList );
+	$unfilteredUserList 	= scandir( $GLOBALS['log_root'] );
+	$unsortedUserList 		= array_diff( $unfilteredUserList, array( '..', '.' ) );
+	$userList 				= array_values( $unsortedUserList );
 	return $userList;
 }
 
