@@ -20,7 +20,6 @@ switch( trim( $payload ) )
 			$user = $_GET["user"];
 			$networks = getNetworksForUser( $user );
 			echo implode(",", $networks);
-			}
 		} else {
 			echo( "Invalid request.  No user specified." );
 		}
