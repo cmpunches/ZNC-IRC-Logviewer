@@ -10,8 +10,6 @@ require_once('inc/smarty.php');
 #		@channels
 #			@dates
 
-print_r( getChannelsForNetworkForUser( 'phanes', 'freenode' ) );
-
 # it's coming
 $smarty->display('index.tpl');
 

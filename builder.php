@@ -66,9 +66,9 @@ switch( trim( $payload ) )
 
 function getUsers()
 {
-	$unfilteredUserList 	= scandir( $GLOBALS['log_root'] );
-	$unsortedUserList 		= array_diff( $unfilteredUserList, array( '..', '.' ) );
-	$userList 				= array_values( $unsortedUserList );
+	$unfilteredUserList		= scandir( $GLOBALS['log_root'] );
+	$unsortedUserList		= array_diff( $unfilteredUserList, array( '..', '.' ) );
+	$userList				= array_values( $unsortedUserList );
 	return $userList;
 }
 
@@ -92,7 +92,7 @@ function getLogs( $user, $network, $channel )
 {
 	$unfilteredLogList 		= scandir( $GLOBALS['log_root'] . '/' . $user . '/' . $network . '/' . $channel );
 	$unsortedLogList 		= array_diff( $unfilteredLogList, array( '..', '.' ) );
-	$logList 				= array_values( $unsortedLogList );
+	$logList				= array_values( $unsortedLogList );
 	return $logList;
 }
 
