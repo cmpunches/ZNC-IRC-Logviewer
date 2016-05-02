@@ -7,7 +7,7 @@ $log_root = '../IRC';
 $payload = htmlspecialchars( $_GET["payload"] );
 echo("Payload is $payload");
 
-switch( $payload ) 
+switch( trim( $payload ) ) 
 {
 	case "users":
 		foreach ( getUsers() as $user)
