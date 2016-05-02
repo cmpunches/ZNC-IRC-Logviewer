@@ -1,6 +1,7 @@
 <?php
 # builds the lists required for the znc log viewer
 # assuming a $user/$network/$channel/$date spec.
+ini_set('display_errors', 'on');
 
 $log_root = '../IRC';
 
