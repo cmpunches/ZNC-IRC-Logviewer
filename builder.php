@@ -23,6 +23,7 @@ switch( trim( $payload ) )
 		if isset( $_GET["user"] ) 
 		{
 			$user = $_GET["user"];
+			var_dump($user);
 			$networks = getNetworksForUser( $user );
 			foreach ( $networks as $network )
 			{
