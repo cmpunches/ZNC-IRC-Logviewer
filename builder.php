@@ -106,12 +106,4 @@ function getRawLog( $user, $network, $channel, $log )
 		echo("Log either doesn't exist or isn't a file:  $logfilepath");
 	}
 }
-
-
-# build a multidimensional key/value set using:
-# @users
-#	@networks
-#		@channels
-#			@dates
-
 ?>
