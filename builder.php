@@ -20,7 +20,6 @@ switch( trim( $payload ) )
 			}
 		}
 		break;
-		
 	case "networks":
 		echo("line 25<br>" );
 		if isset( $_GET["user"] ) 
