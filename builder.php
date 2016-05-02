@@ -59,9 +59,11 @@ function getUsers()
 
 function getNetworksForUser( $user )
 {
+	var_dump($user);
 	$unfilteredNetworkList = scandir( $GLOBALS['log_root'] . '/' . $user );
 	$unsortedNetworkList = array_diff( $unfilteredNetworkList , array( '..', '.' ) );
 	$networkList = array_values( $unsortedNetworkList );
+	var_dump($networkList);
 	return $networkList;
 }
 
