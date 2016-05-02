@@ -44,14 +44,7 @@ switch( trim( $payload ) )
 			$user = $_GET["user"];
 			$network = $_GET["network"];
 			$channels = getChannelsForNetworkForUser( $user, $network );
-			foreach( $channels as $channel )
-			{
-				echo("$channel");
-				if ( count( $channels ) > 1 )
-				{
-					echo ",";
-				}
-			}
+			echo implode(",", $channels);
 		}
 		break;
 	case "dates":
