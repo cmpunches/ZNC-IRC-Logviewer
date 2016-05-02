@@ -7,6 +7,7 @@ error_reporting(-1);
 $log_root = '../IRC';
 
 $payload = htmlspecialchars( $_GET["payload"] );
+var_dump($paylod);
 switch( trim( $payload ) ) 
 {
 	case "users":
