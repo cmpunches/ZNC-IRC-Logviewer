@@ -25,7 +25,7 @@ switch( trim( $payload ) )
 		}
 		break;
 	case "channels":
-		if ( ( isset( $_GET["user"] ) && isset( $_GET["network"] ) ) )
+		if ( isset( $_GET["user"] ) && isset( $_GET["network"] ) )
 		{
 			$user = $_GET["user"];
 			$network = $_GET["network"];
@@ -36,7 +36,7 @@ switch( trim( $payload ) )
 		}
 		break;
 	case "dates":
-		if ( ( isset( $_GET["user"] ) && isset( $_GET["network"] ) && isset( $_GET["channel"] ) ) )
+		if ( isset( $_GET["user"] ) && isset( $_GET["network"] ) && isset( $_GET["channel"] ) )
 		{
 			$user = $_GET["user"];
 			$network = $_GET["network"];
@@ -48,7 +48,7 @@ switch( trim( $payload ) )
 		}
 		break;
 	case "onelog":
-		if ( ( isset( $_GET["user"] ) && isset( $_GET["network"] ) && isset( $_GET["channel"] && isset( $_GET["log"]) ) )
+		if ( isset( $_GET["user"] ) && isset( $_GET["network"] ) && isset( $_GET["channel"] ) && isset( $_GET["log"] ) )
 		{
 			$user = $_GET["user"];
 			$network = $_GET["network"];
