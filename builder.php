@@ -34,6 +34,14 @@ switch( trim( $payload ) )
 		}
 		break;
 	case "dates":
+		if ( ( isset( $_GET["user"] ) && isset( $_GET["network"] ) isset( $_GET["channel"] ) ) )
+		{
+			$user = $_GET["user"];
+			$network = $_GET["network"];
+			$channel = $_GET["channel"];
+			$logs = getLogs( $user, $network, $channel );
+			echo implode(",", $logs );
+		}
 		break;
 	default: 
 		echo( "Invalid request.  No payload specified, or invalid payload specified." );
@@ -61,6 +69,14 @@ function getChannelsForNetworkForUser( $user, $network )
 	$unsortedChannelList 	= array_diff( $unfilteredChannelList, array( '..', '.' ) );
 	$channelList 			= array_values( $unsortedChannelList );
 	return $channelList;
+}
+
+function getLogs( $user, $network, $channel )
+{
+	$unfilteredLogList 	= scandir( $GLOBALS['log_root'] . '/' . $user . '/' . $network . '/' . $channel );
+	$unsortedLogList 	= array_diff( $unfilteredLogList, array( '..', '.' ) );
+	$logList 			= array_values( $unsortedLogList );
+	return $logList;
 }
 
 # build a multidimensional key/value set using:
