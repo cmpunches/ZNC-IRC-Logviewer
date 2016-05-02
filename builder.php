@@ -27,6 +27,7 @@ switch( trim( $payload ) )
 
 function getUsers()
 {
+	echo("got here");
 	return array_values( 
 		array_diff( 
 			scandir( $log_root ), 
