@@ -17,8 +17,8 @@ switch( trim( $payload ) )
 	case "networks":
 		if ( isset( $_GET["user"] ) ) 
 		{
-			$user = $_GET["user"];
-			$networks = getNetworksForUser( $user );
+			$user		= $_GET["user"];
+			$networks	= getNetworksForUser( $user );
 			echo implode(",", $networks);
 		} else {
 			echo( "Invalid request.  No user specified." );
