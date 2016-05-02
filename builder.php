@@ -37,18 +37,13 @@ switch( trim( $payload ) )
 		} else {
 			echo( "Invalid request.  No user specified." );
 		}
-
 		break;
-		
 	case "channels":
 		break;
-		
 	case "dates":
 		break;
-		
 	default: 
 		echo( "Invalid request.  No payload specified, or invalid payload specified." );
-
 }
 
 function getUsers()
@@ -61,21 +56,19 @@ function getUsers()
 
 function getNetworksForUser( $user )
 {
-	$unfilteredNetworkList = scandir( $GLOBALS['log_root'] . '/' . $user );
-	$unsortedNetworkList = array_diff( $unfilteredNetworkList , array( '..', '.' ) );
-	$networkList = array_values( $unsortedNetworkList );
+	$unfilteredNetworkList 	= scandir( $GLOBALS['log_root'] . '/' . $user );
+	$unsortedNetworkList 	= array_diff( $unfilteredNetworkList , array( '..', '.' ) );
+	$networkList 			= array_values( $unsortedNetworkList );
 	return $networkList;
 }
 
-//function getChannelsForNetworkForUser( $user, $network )
-//{
-	//return array_values(
-		//array_diff(
-			//scandir( $GLOBALS['log_root'] . '/' . $user . '/' . $network ),
-			//array( '..', '.' )
-		//)
-	//);
-//}
+function getChannelsForNetworkForUser( $user, $network )
+{
+	$unfilteredChannelList 	= scandir( $GLOBALS['log_root'] . '/' . $user . '/' . $network );
+	$unsortedChannelList 	= array_diff( $unfilteredNetworkList, array( '..', ',' ) );
+	$channelList 			= array_values( $unsortedNetworkList );
+	return $channelList;
+}
 
 # build a multidimensional key/value set using:
 # @users
