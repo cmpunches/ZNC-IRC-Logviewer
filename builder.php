@@ -38,7 +38,7 @@ switch( trim( $payload ) )
 		{
 			$user = $_GET["user"];
 			$network = $_GET["network"];
-			$channel = $_GET["channel"];
+			$channel = htmlspecialchars( $_GET["channel"] );
 			$logs = getLogs( $user, $network, $channel );
 			echo implode(",", $logs );
 		}
