@@ -11,8 +11,7 @@ switch( trim( $payload ) )
 	case "users":
 		foreach ( getUsers() as $user)
 		{
-			echo("made it into loop");
-			echo("$user\n<br>");
+			echo("$user,");
 		}
 		break;
 	case "networks":
@@ -27,8 +26,7 @@ switch( trim( $payload ) )
 
 function getUsers()
 {
-	var_dump($GLOBALS['log_root']);
-	$unfilteredUserList = scandir( '../IRC' );
+	$unfilteredUserList = scandir( $GLOBALS['log_root'] );
 	$unsortedUserList = array_diff( $unfilteredUserList, array( '..', '.' ) );
 	$userList = array_values( $unsortedUserList );
 	return $userList;
