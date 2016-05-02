@@ -5,13 +5,13 @@
 $log_root = '../IRC';
 
 $payload = htmlspecialchars( $_GET["payload"] );
-var_dump();
 
 switch( trim( $payload ) ) 
 {
 	case "users":
 		foreach ( getUsers() as $user)
 		{
+			echo("made it into loop");
 			echo("$user\n<br>");
 		}
 		break;
@@ -27,13 +27,10 @@ switch( trim( $payload ) )
 
 function getUsers()
 {
-	echo("got here");
-	return array_values( 
-		array_diff( 
-			scandir( $log_root ), 
-			array( '..', '.' )
-		) 
-	);	
+	$unfilteredUserList = scandir( $log_root );
+	$unsortedUserList = array_diff( $unfilteredUserList, array( '..', '.' ) );
+	$userList = array_values( $unsortedUserList );
+	return $userList;
 }
 
 //function getNetworksForUser( $user )
