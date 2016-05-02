@@ -24,9 +24,11 @@ switch( trim( $payload ) )
 		{
 			$user = $_GET["user"];
 			var_dump($user);
+			echo("line 27<br>" );
 			$networks = getNetworksForUser( $user );
 			foreach ( $networks as $network )
 			{
+				echo("line 31<br>" );
 				echo( "$network" );
 				if ( count( $networks ) > 1 )
 				{
@@ -60,6 +62,8 @@ function getUsers()
 
 function getNetworksForUser( $user )
 {
+	echo("line 64<br>" );
+
 	var_dump($user);
 	$unfilteredNetworkList = scandir( $GLOBALS['log_root'] . '/' . $user );
 	$unsortedNetworkList = array_diff( $unfilteredNetworkList , array( '..', '.' ) );
