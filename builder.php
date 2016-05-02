@@ -5,7 +5,6 @@
 $log_root = '../IRC';
 
 $payload = htmlspecialchars( $_GET["payload"] );
-
 switch( trim( $payload ) ) 
 {
 	case "users":
@@ -13,19 +12,40 @@ switch( trim( $payload ) )
 		foreach ( $users as $user )
 		{
 			echo( "$user" );
-			if (count( $users ) > 1) {
+			if ( count( $users ) > 1 ) 
+			{
 				echo ",";
 			}
 		}
 		break;
+		
 	case "networks":
+		if isset( $_GET["user"] ) 
+		{
+			$user = $_GET["user"];
+			$networks = getNetworksForUser( $user );
+		} else {
+			echo( "Invalid request.  No user specified." );
+		}
+		foreach ( $networks as $network )
+		{
+			echo( "$network" );
+			if ( count( $networks ) > 1 )
+			{
+				echo ",";
+			}
+		}
 		break;
+		
 	case "channels":
 		break;
+		
 	case "dates":
 		break;
+		
 	default: 
-		print "Invalid request.  No payload specified.";
+		echo( "Invalid request.  No payload specified, or invalid payload specified." );
+
 }
 
 function getUsers()
@@ -36,25 +56,23 @@ function getUsers()
 	return $userList;
 }
 
-//function getNetworksForUser( $user )
-//{
-	//return array_values(
-		//array_diff(
-			//scandir( $log_root . '/' . $user ),
-			//array( '..', '.' )
-		//)
-	//);
-//}
+function getNetworksForUser( $user )
+{
+	$unfilteredNetworkList = scandir( $GLOBALS['log_root'] . '/' . $user );
+	$unsortedNetworkList = array_diff( $unfilteredNetworkList , array( '..', '.' ) );
+	$networkList = array_values( $unsortedNetworkList );
+	return $networkList;
+}
 
-//function getChannelsForNetworkForUser( $user, $network )
-//{
-	//return array_values(
-		//array_diff(
-			//scandir( $log_root . '/' . $user . '/' . $network ),
-			//array( '..', '.' )
-		//)
-	//);
-//}
+function getChannelsForNetworkForUser( $user, $network )
+{
+	return array_values(
+		array_diff(
+			scandir( $GLOBALS['log_root'] . '/' . $user . '/' . $network ),
+			array( '..', '.' )
+		)
+	);
+}
 
 # build a multidimensional key/value set using:
 # @users
