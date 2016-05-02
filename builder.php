@@ -31,6 +31,8 @@ switch( trim( $payload ) )
 			$network = $_GET["network"];
 			$channels = getChannelsForNetworkForUser( $user, $network );
 			echo implode(",", $channels);
+		} else {
+			echo("Need to provide both a valid user and network uri variable.  Either one or both was either invalid or not provided.");
 		}
 		break;
 	case "dates":
@@ -41,8 +43,23 @@ switch( trim( $payload ) )
 			$channel = htmlspecialchars( $_GET["channel"] );
 			$logs = getLogs( $user, $network, $channel );
 			echo implode(",", $logs );
+		} else {
+			echo("Need to provide both a valid user, network, and channel uri variable.  At least one was either invalid or not provided.");			
 		}
 		break;
+	case "onelog":
+		if ( ( isset( $_GET["user"] ) && isset( $_GET["network"] ) && isset( $_GET["channel"] && isset( $_GET["log"]) ) )
+		{
+			$user = $_GET["user"];
+			$network = $_GET["network"];
+			$channel = htmlspecialchars( $_GET["channel"] );
+			$log = htmlspecialchars( $_GET["log"] );
+			getRawLog( $user, $network, $channel, $log );
+		} else {
+			echo("Need to provide both a valid user, network, channel, and log uri variable.  At least one was either invalid or not provided.");
+		}
+		break;
+	
 	default: 
 		echo( "Invalid request.  No payload specified, or invalid payload specified." );
 }
@@ -73,11 +90,23 @@ function getChannelsForNetworkForUser( $user, $network )
 
 function getLogs( $user, $network, $channel )
 {
-	$unfilteredLogList 	= scandir( $GLOBALS['log_root'] . '/' . $user . '/' . $network . '/' . $channel );
-	$unsortedLogList 	= array_diff( $unfilteredLogList, array( '..', '.' ) );
-	$logList 			= array_values( $unsortedLogList );
+	$unfilteredLogList 		= scandir( $GLOBALS['log_root'] . '/' . $user . '/' . $network . '/' . $channel );
+	$unsortedLogList 		= array_diff( $unfilteredLogList, array( '..', '.' ) );
+	$logList 				= array_values( $unsortedLogList );
 	return $logList;
 }
+
+function getRawLog( $user, $network, $channel, $log )
+{
+	$logfilepath = $GLOBALS['log_root'] . '/' . $user . '/' . $network . '/' . $channel . '/' . $log;
+	if ( file_exists($logfilepath) && is_file( $logfilepath )  )
+	{
+		readfile($logfilepath);
+	} else {
+		echo("Log either doesn't exist or isn't a file:  $logfilepath");
+	}
+}
+
 
 # build a multidimensional key/value set using:
 # @users
