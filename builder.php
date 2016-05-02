@@ -39,6 +39,20 @@ switch( trim( $payload ) )
 		}
 		break;
 	case "channels":
+		if ( ( isset( $_GET["user"] ) && isset( $_GET["network"] ) ) )
+		{
+			$user = $_GET["user"];
+			$network = $_GET["network"];
+			$channels = getChannelsForNetworkForUser( $user, $network );
+			foreach( $channels as $channel )
+			{
+				echo("$channel");
+				if ( count( $channels ) > 1 )
+				{
+					echo ",";
+				}
+			}
+		}
 		break;
 	case "dates":
 		break;
@@ -65,8 +79,8 @@ function getNetworksForUser( $user )
 function getChannelsForNetworkForUser( $user, $network )
 {
 	$unfilteredChannelList 	= scandir( $GLOBALS['log_root'] . '/' . $user . '/' . $network );
-	$unsortedChannelList 	= array_diff( $unfilteredNetworkList, array( '..', ',' ) );
-	$channelList 			= array_values( $unsortedNetworkList );
+	$unsortedChannelList 	= array_diff( $unfilteredChannelList, array( '..', ',' ) );
+	$channelList 			= array_values( $unsortedChannelList );
 	return $channelList;
 }
 
