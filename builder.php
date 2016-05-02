@@ -12,27 +12,14 @@ switch( trim( $payload ) )
 {
 	case "users":
 		$users = getUsers();
-		foreach ( $users as $user )
-		{
-			echo( "$user" );
-			if ( count( $users ) > 1 ) 
-			{
-				echo ",";
-			}
-		}
+		echo implode(",", $users);
 		break;
 	case "networks":
 		if ( isset( $_GET["user"] ) ) 
 		{
 			$user = $_GET["user"];
 			$networks = getNetworksForUser( $user );
-			foreach ( $networks as $network )
-			{
-				echo( "$network" );
-				if ( count( $networks ) > 1 )
-				{
-					echo ",";
-				}
+			echo implode(",", $networks);
 			}
 		} else {
 			echo( "Invalid request.  No user specified." );
@@ -72,7 +59,7 @@ function getNetworksForUser( $user )
 function getChannelsForNetworkForUser( $user, $network )
 {
 	$unfilteredChannelList 	= scandir( $GLOBALS['log_root'] . '/' . $user . '/' . $network );
-	$unsortedChannelList 	= array_diff( $unfilteredChannelList, array( '..', ',' ) );
+	$unsortedChannelList 	= array_diff( $unfilteredChannelList, array( '..', '.' ) );
 	$channelList 			= array_values( $unsortedChannelList );
 	return $channelList;
 }
