@@ -2,16 +2,16 @@
 # builds the lists required for the znc log viewer
 # assuming a $user/$network/$channel/$date spec.
 
-$log_root = '../../IRC';
+$log_root = '../IRC';
 
-$payload = htmlspecialchars( $_GET["load"] );
+$payload = htmlspecialchars( $_GET["payload"] );
 
 switch( $payload ) 
 {
 	case "users":
 		foreach ( getUsers() as $user)
 		{
-			print "$user\n<br>";
+			echo("$user\n<br>");
 		}
 		break;
 	case "networks":
@@ -21,7 +21,7 @@ switch( $payload )
 	case "dates":
 		break;
 	default: 
-		print "Access denied.";
+		print "Invalid request.  No payload specified.";
 }
 
 function getUsers()
@@ -34,25 +34,25 @@ function getUsers()
 	);	
 }
 
-function getNetworksForUser( $user )
-{
-	return array_values(
-		array_diff(
-			scandir( $log_root . '/' . $user ),
-			array( '..', '.' )
-		)
-	);
-}
+//function getNetworksForUser( $user )
+//{
+	//return array_values(
+		//array_diff(
+			//scandir( $log_root . '/' . $user ),
+			//array( '..', '.' )
+		//)
+	//);
+//}
 
-function getChannelsForNetworkForUser( $user, $network )
-{
-	return array_values(
-		array_diff(
-			scandir( $log_root . '/' . $user . '/' . $network ),
-			array( '..', '.' )
-		)
-	);
-}
+//function getChannelsForNetworkForUser( $user, $network )
+//{
+	//return array_values(
+		//array_diff(
+			//scandir( $log_root . '/' . $user . '/' . $network ),
+			//array( '..', '.' )
+		//)
+	//);
+//}
 
 # build a multidimensional key/value set using:
 # @users
