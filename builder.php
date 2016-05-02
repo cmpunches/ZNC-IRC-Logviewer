@@ -2,15 +2,14 @@
 # builds the lists required for the znc log viewer
 # assuming a $user/$network/$channel/$date spec.
 
-$log_root = '../IRC';
+$log_root = '../../IRC';
 
 $payload = htmlspecialchars( $_GET["load"] );
 
 switch( $payload ) 
 {
 	case "users":
-		$users = getUsers();
-		foreach ($users as $user)
+		foreach ( getUsers() as $user)
 		{
 			print "$user\n<br>";
 		}
