@@ -28,7 +28,7 @@ switch( trim( $payload ) )
 function getUsers()
 {
 	var_dump($log_root);
-	$unfilteredUserList = scandir( $log_root );
+	$unfilteredUserList = scandir( '../IRC' );
 	$unsortedUserList = array_diff( $unfilteredUserList, array( '..', '.' ) );
 	$userList = array_values( $unsortedUserList );
 	return $userList;
