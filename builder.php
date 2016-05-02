@@ -24,17 +24,18 @@ switch( trim( $payload ) )
 		{
 			$user = $_GET["user"];
 			$networks = getNetworksForUser( $user );
+			foreach ( $networks as $network )
+			{
+				echo( "$network" );
+				if ( count( $networks ) > 1 )
+				{
+					echo ",";
+				}
+			}
 		} else {
 			echo( "Invalid request.  No user specified." );
 		}
-		foreach ( $networks as $network )
-		{
-			echo( "$network" );
-			if ( count( $networks ) > 1 )
-			{
-				echo ",";
-			}
-		}
+
 		break;
 		
 	case "channels":
