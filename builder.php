@@ -27,9 +27,9 @@ switch( trim( $payload ) )
 	case "channels":
 		if ( isset( $_GET["user"] ) && isset( $_GET["network"] ) )
 		{
-			$user = $_GET["user"];
-			$network = $_GET["network"];
-			$channels = getChannelsForNetworkForUser( $user, $network );
+			$user		= $_GET["user"];
+			$network	= $_GET["network"];
+			$channels	= getChannelsForNetworkForUser( $user, $network );
 			echo implode(",", $channels);
 		} else {
 			echo("Need to provide both a valid user and network uri variable.  Either one or both was either invalid or not provided.");
@@ -38,10 +38,10 @@ switch( trim( $payload ) )
 	case "dates":
 		if ( isset( $_GET["user"] ) && isset( $_GET["network"] ) && isset( $_GET["channel"] ) )
 		{
-			$user = $_GET["user"];
-			$network = $_GET["network"];
-			$channel = htmlspecialchars( $_GET["channel"] );
-			$logs = getLogs( $user, $network, $channel );
+			$user		= $_GET["user"];
+			$network	= $_GET["network"];
+			$channel	= htmlspecialchars( $_GET["channel"] );
+			$logs		= getLogs( $user, $network, $channel );
 			echo implode(",", $logs );
 		} else {
 			echo("Need to provide both a valid user, network, and channel uri variable.  At least one was either invalid or not provided.");			
@@ -50,10 +50,10 @@ switch( trim( $payload ) )
 	case "onelog":
 		if ( isset( $_GET["user"] ) && isset( $_GET["network"] ) && isset( $_GET["channel"] ) && isset( $_GET["log"] ) )
 		{
-			$user = $_GET["user"];
-			$network = $_GET["network"];
-			$channel = htmlspecialchars( $_GET["channel"] );
-			$log = htmlspecialchars( $_GET["log"] );
+			$user		= $_GET["user"];
+			$network	= $_GET["network"];
+			$channel	= htmlspecialchars( $_GET["channel"] );
+			$log		= htmlspecialchars( $_GET["log"] );
 			getRawLog( $user, $network, $channel, $log );
 		} else {
 			echo("Need to provide both a valid user, network, channel, and log uri variable.  At least one was either invalid or not provided.");
