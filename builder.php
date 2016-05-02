@@ -34,7 +34,7 @@ switch( trim( $payload ) )
 		}
 		break;
 	case "dates":
-		if ( ( isset( $_GET["user"] ) && isset( $_GET["network"] ) isset( $_GET["channel"] ) ) )
+		if ( ( isset( $_GET["user"] ) && isset( $_GET["network"] ) && isset( $_GET["channel"] ) ) )
 		{
 			$user = $_GET["user"];
 			$network = $_GET["network"];
