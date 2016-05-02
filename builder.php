@@ -1,8 +1,8 @@
 <?php
 # builds the lists required for the znc log viewer
 # assuming a $user/$network/$channel/$date spec.
-ini_set('display_errors', 'on');
-error_reporting(1);
+ini_set('display_errors', '1');
+error_reporting(-1);
 
 $log_root = '../IRC';
 
@@ -75,15 +75,15 @@ function getNetworksForUser( $user )
 	return $networkList;
 }
 
-function getChannelsForNetworkForUser( $user, $network )
-{
-	return array_values(
-		array_diff(
-			scandir( $GLOBALS['log_root'] . '/' . $user . '/' . $network ),
-			array( '..', '.' )
-		)
-	);
-}
+//function getChannelsForNetworkForUser( $user, $network )
+//{
+	//return array_values(
+		//array_diff(
+			//scandir( $GLOBALS['log_root'] . '/' . $user . '/' . $network ),
+			//array( '..', '.' )
+		//)
+	//);
+//}
 
 # build a multidimensional key/value set using:
 # @users
