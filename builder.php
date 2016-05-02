@@ -7,7 +7,7 @@ error_reporting(-1);
 $log_root = '../IRC';
 
 $payload = htmlspecialchars( $_GET["payload"] );
-var_dump($paylod);
+
 switch( trim( $payload ) ) 
 {
 	case "users":
@@ -23,7 +23,7 @@ switch( trim( $payload ) )
 		break;
 	case "networks":
 		echo("line 25<br>" );
-		if isset( $_GET["user"] ) 
+		if ( isset( $_GET["user"] ) ) 
 		{
 			$user = $_GET["user"];
 			var_dump($user);
