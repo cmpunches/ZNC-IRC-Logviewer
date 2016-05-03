@@ -77,7 +77,7 @@ function getNetworks( user )
 		if (xhttp.readyState == 4 && xhttp.status == 200) 
 		{
 			document.getElementById("Networks").innerHTML = '';
-			document.getElementById("Networks").innerHTML += '<li class="last"><a href="#" onclick="getChannel()">' + xhttp.responseText + '</a></li
+			document.getElementById("Networks").innerHTML += '<li class="last"><a href="#" onclick="getChannel()">' + xhttp.responseText + '</a></li>';
 			document.getElementById("SelectedNetwork").innerHTML = xhttp.responseText;
 
 		}
