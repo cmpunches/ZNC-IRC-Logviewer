@@ -33,12 +33,10 @@
 	<ul id = "Channels"></ul>
 	</li>
 	
-	<li class='has-sub'><a href='#'><span id="SelectedDate">Dates</span></a>
+	<li class='last has-sub'><a href='#'><span id="SelectedDate">Dates</span></a>
 	<ul id = "Dates"></ul>
 	</li>
 		
-	<li class='last'><a href='#'><span>Contact</span></a></li>
-
 </ul>
 </div>
 
