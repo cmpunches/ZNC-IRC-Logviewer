@@ -3,13 +3,13 @@
 <head>
 	<title></title>
 </head>
+
 <body>
 
 <div id="id01"></div>
-
 <script>
 var xmlhttp = new XMLHttpRequest();
-var url = "myTutorials.txt";
+var url = "builder.php?payload=users";
 
 xmlhttp.onreadystatechange = function() {
     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
