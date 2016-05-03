@@ -88,13 +88,12 @@ function getNetworks( user )
 				if ( i in vals )
 				{
 					s = vals[i];
-					if ( i == len )
+					if ( i == len - 1 )
 					{
-						document.getElementById("Networks").innerHTML += '<li class="last">';
+						document.getElementById("Networks").innerHTML += '<li class="last"><a href="#" onclick="getChannel()">' + s + '</a></li>';
 					} else {
-						document.getElementById("Networks").innerHTML += '<li>';
+						document.getElementById("Networks").innerHTML += '<li><a href="#" onclick="getChannel()">' + s + '</a></li>';
 					}
-					document.getElementById("Networks").innerHTML += '<a href="#" onclick="getChannel()">' + s + '</a></li>';
 					document.getElementById("SelectedNetwork").innerHTML = s;	
 				}
 			}
@@ -103,6 +102,7 @@ function getNetworks( user )
 	xhttp.open("GET", "builder.php?payload=networks&user=" + user, true);
 	xhttp.send();
 }
+
 
 function csv2arr( string )
 {
