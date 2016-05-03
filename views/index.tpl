@@ -142,12 +142,12 @@ function getChannels( network )
 			{
 				if ( i in vals )
 				{
-					s = encodeURIcomponent( vals[i] );
+					s = vals[i];
 					if ( i == len - 1 )
 					{
-						document.getElementById("Channels").innerHTML += '<li class="last"><a href="#" onclick="getDates(\'' + encodeURI(s) + '\')">' + s + '</a></li>';
+						document.getElementById("Channels").innerHTML += '<li class="last"><a href="#" onclick="getDates(\'' + encodeURIComponent(s) + '\')">' + s + '</a></li>';
 					} else {
-						document.getElementById("Channels").innerHTML += '<li><a href="#" onclick="getDates(\'' + encodeURI(s) + '\')">' + s + '</a></li>';
+						document.getElementById("Channels").innerHTML += '<li><a href="#" onclick="getDates(\'' + encodeURIComponent(s) + '\')">' + s + '</a></li>';
 					}
 				}
 			}
@@ -161,7 +161,7 @@ function getChannels( network )
 function getDates( channel )
 {
 	var xhttp;
-	document.getElementById("SelectedChannel").innerHTML = decodeURI(channel);
+	document.getElementById("SelectedChannel").innerHTML = decodeURIComponent(channel);
 	var user = document.getElementById("SelectedUser").innerHTML;
 	var network = document.getElementById("SelectedNetwork").innerHTML;
 	
