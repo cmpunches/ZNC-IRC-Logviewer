@@ -42,4 +42,24 @@ function getRawLog( $user, $network, $channel, $log )
 		echo("Log either doesn't exist or isn't a file:  $logfilepath");
 	}
 }
+
+function getPrettyLog( $user, $network, $channel, $log )
+{
+	$logfilepath = $GLOBALS['log_root'] . '/' . $user . '/' . $network . '/' . $channel . '/' . $log;
+	if ( file_exists($logfilepath) && is_file( $logfilepath )  )
+	{
+		$contents = file($logfilepath);
+		echo("<div class="ircLogDump" id="ircLogDump">");
+		foreach( $contents as $entry )
+		{
+			echo("<p class="IRCEntry" id="IRCEntry">" . htmlspecialchars($entry) . "</p>");
+		}
+		echo("</div>");
+
+	} else {
+		echo("Log either doesn't exist or isn't a file:  $logfilepath");
+	}
+}
+
+
 ?>

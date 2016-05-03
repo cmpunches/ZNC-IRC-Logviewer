@@ -217,18 +217,8 @@ function getLog( date_log )
 	{
 		if (xhttp.readyState == 4 && xhttp.status == 200) 
 		{
-			var vals = nl2arr( xhttp.responseText );
-			var len = vals.length;
-			var i, s;
 			document.getElementById("Content").innerHTML = '';
-			for ( i = 0; i < len; i++ )
-			{
-				if ( i in vals )
-				{
-					s = vals[i];
-					document.getElementById("Content").innerHTML += "<p>" + s + "</p>";
-				}
-			}
+			document.getElementById("Content").innerHTML += "<div class="ircLogDump" id="ircLogDump">" + xhttp.responseText + "</div>";
 		}
 	};
 
