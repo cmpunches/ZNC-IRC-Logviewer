@@ -218,7 +218,7 @@ function getLog( date_log )
 		if (xhttp.readyState == 4 && xhttp.status == 200) 
 		{
 			document.getElementById("Content").innerHTML = '';
-			document.getElementById("Content").innerHTML += "<div class="ircLogDump" id="ircLogDump">" + xhttp.responseText + "</div>";
+			document.getElementById("Content").innerHTML += "<div class=\"ircLogDump\" id=\"ircLogDump\">" + xhttp.responseText + "</div>";
 		}
 	};
 
