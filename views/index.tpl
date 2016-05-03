@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script src="inc/jquery-2.2.3.min.js"></script>
 <link rel="stylesheet" type="text/css" type="text/css" href="css/browse.css" />
 <link rel="stylesheet" href="css/dropit.css" />
-<script src="inc/jquery-2.2.3.min.js"></script>
+<link rel="stylesheet" href="css/dmenu.css" />
 <title></title>
 </head>
 
@@ -33,26 +34,26 @@ $(document).ready(function() {
 });
 
 
-function loadUsers() 
-{
-	var xhttp;
+//function loadUsers() 
+//{
+	//var xhttp;
 	
-	if (window.XMLHttpRequest) {
-		xhttp = new XMLHttpRequest();
-	} else {
-		// code for IE6, IE5
-		xhttp = new ActiveXObject("Microsoft.XMLHTTP");
-	}
+	//if (window.XMLHttpRequest) {
+		//xhttp = new XMLHttpRequest();
+	//} else {
+		//// code for IE6, IE5
+		//xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+	//}
 	
-	xhttp.onreadystatechange = function() 
-	{
-		if (xhttp.readyState == 4 && xhttp.status == 200) 
-		{
-			document.getElementById(".menu").innerHTML += '<li><a href="#">' + xhttp.responseText + '</a></li>';
-		}
-	};
-	xhttp.open("GET", "builder.php?payload=users", true);
-	xhttp.send();
+	//xhttp.onreadystatechange = function() 
+	//{
+		//if (xhttp.readyState == 4 && xhttp.status == 200) 
+		//{
+			//document.getElementById(".menu").innerHTML += '<li><a href="#">' + xhttp.responseText + '</a></li>';
+		//}
+	//};
+	//xhttp.open("GET", "builder.php?payload=users", true);
+	//xhttp.send();
 }
 
 //function togglePulldown(self) {
