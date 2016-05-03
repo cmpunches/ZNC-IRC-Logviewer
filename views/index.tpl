@@ -41,7 +41,7 @@
 <H1 id="DumpAreaTitle">ZNC IRC Log Viewer</H1>
 <div id= "Content"></div>
 <script>
-var firstrun = true;
+var window.firstrun = true;
 
 function loadUsers( firstrun ) 
 {
@@ -62,11 +62,11 @@ function loadUsers( firstrun )
 
 			document.getElementById("Users").innerHTML = '';
 			document.getElementById("Users").innerHTML += '<li class="last"><a href="#" onclick="getNetworks()">' + xhttp.responseText + '</a></li>';
-			console.log(firstrun);
-			if ( firstrun == true)
+			console.log(window.firstrun);
+			if ( window.firstrun == true)
 			{
 				document.getElementById("SelectedUser").innerHTML = xhttp.responseText;
-				firstrun = false;
+				window.firstrun = false;
 			}
 		}
 	};
