@@ -97,7 +97,7 @@ function getNetworks()
 					{
 						document.getElementById("Networks").innerHTML += '<li class="last"><a href="#" onclick="getChannels(\'' + s + '\')">' + s + '</a></li>';
 					} else {
-						document.getElementById("Networks").innerHTML += '<li><a href="#" onclick="getChannels(\'' + s + \')">' + s + '</a></li>';
+						document.getElementById("Networks").innerHTML += '<li><a href="#" onclick="getChannels(\'' + s + '\')">' + s + '</a></li>';
 					}
 					document.getElementById("SelectedNetwork").innerHTML = s;	
 				}
