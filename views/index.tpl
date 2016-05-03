@@ -39,6 +39,7 @@
 </ul>
 </div>
 <H1>IRC Log</H1>
+<div id= "Content"></div>
 <script>
 
 
@@ -161,7 +162,6 @@ function getDates( channel )
 	var user = document.getElementById("SelectedUser").innerHTML;
 	var network = document.getElementById("SelectedNetwork").innerHTML;
 	
-	
 	if (window.XMLHttpRequest) {
 		xhttp = new XMLHttpRequest();
 	} else {
@@ -195,6 +195,43 @@ function getDates( channel )
 		}
 	};
 	xhttp.open("GET", "builder.php?payload=dates&user=" + user + "&network=" + network + "&channel=" + channel, true);
+	xhttp.send();
+}
+
+function getLog( date_log )
+{
+	var xhttp;
+	document.getElementById("SelectedDate").innerHTML = date_log;
+	var user = document.getElementById("SelectedUser").innerHTML;
+	var network = document.getElementById("SelectedNetwork").innerHTML;
+	var channel = document.getElementById("SelectedChannel").innerHTML;
+	
+	if (window.XMLHttpRequest) {
+		xhttp = new XMLHttpRequest();
+	} else {
+		// code for IE6, IE5
+		xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	
+	xhttp.onreadystatechange = function() 
+	{
+		if (xhttp.readyState == 4 && xhttp.status == 200) 
+		{
+			var vals = csv2arr( xhttp.responseText );
+			var len = vals.length;
+			var i, s;
+
+			for ( i = 0; i < len; i++ )
+			{
+				if ( i in vals )
+				{
+					s = vals[i];
+					echo("<p>" + s + "</p>");
+				}
+			}
+		}
+	};
+	xhttp.open("GET", "logview.php?user=" + user + "&network=" + network + "&channel=" + channel + "&log=" + date_log, true);
 	xhttp.send();
 }
 

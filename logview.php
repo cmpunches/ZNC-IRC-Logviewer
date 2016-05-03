@@ -9,7 +9,7 @@ require_once( "inc/apifuncs.php" );
 
 $log_root = '../IRC';
 
-#echo("<pre>");
+echo("<pre>");
 if ( isset( $_GET["user"] ) && isset( $_GET["network"] ) && isset( $_GET["channel"] ) && isset( $_GET["log"] ) )
 {
 	$user = $_GET["user"];
@@ -20,5 +20,5 @@ if ( isset( $_GET["user"] ) && isset( $_GET["network"] ) && isset( $_GET["channe
 } else {
 	echo( "Invalid request.  Either user, network, channel, or date.log was invalid or unspecified." );
 }
-#echo("</pre>");
+echo("</pre>");
 ?>
