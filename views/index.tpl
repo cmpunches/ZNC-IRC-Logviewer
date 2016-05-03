@@ -95,9 +95,9 @@ function getNetworks()
 					s = vals[i];
 					if ( i == len - 1 )
 					{
-						document.getElementById("Networks").innerHTML += '<li class="last"><a href="#" onclick="getChannels()">' + s + '</a></li>';
+						document.getElementById("Networks").innerHTML += '<li class="last"><a href="#" onclick="getChannels(\'' + s + '\')">' + s + '</a></li>';
 					} else {
-						document.getElementById("Networks").innerHTML += '<li><a href="#" onclick="getChannels()">' + s + '</a></li>';
+						document.getElementById("Networks").innerHTML += '<li><a href="#" onclick="getChannels(\'' + s + \')">' + s + '</a></li>';
 					}
 					document.getElementById("SelectedNetwork").innerHTML = s;	
 				}
@@ -109,10 +109,10 @@ function getNetworks()
 }
 
 
-function getChannels()
+function getChannels( network )
 {
 	var xhttp;
-	var network = document.getElementById("SelectedNetwork").innerHTML;
+	document.getElementById("SelectedNetwork").innerHTML = network;
 	var user = document.getElementById("SelectedUser").innerHTML;
 	
 	
@@ -128,7 +128,7 @@ function getChannels()
 	{
 		if (xhttp.readyState == 4 && xhttp.status == 200) 
 		{
-			var vals = csv2arr( encodeHtmlEntity( xhttp.responseText ) );
+			var vals = csv2arr( encodeHtmlEntity( xhttp.responseText );
 			var len = vals.length;
 			var i, s;
 
