@@ -20,49 +20,52 @@
 <div id='cssmenu'>
 <ul>
    <li class='active'><a href='#'><span>Home</span></a></li>
+   
    <li class='has-sub'><a href='#'><span>Products</span></a>
-      <ul>
+      <ul id="Products">
          <li><a href='#'><span>Product 1</span></a></li>
          <li><a href='#'><span>Product 2</span></a></li>
-         <li class='last'><a href='#'><span>Product 3</span></a></li>
       </ul>
    </li>
+   
    <li class='has-sub'><a href='#'><span>About</span></a>
       <ul>
          <li><a href='#'><span>Company</span></a></li>
          <li class='last'><a href='#'><span>Contact</span></a></li>
       </ul>
    </li>
+   
    <li class='last'><a href='#'><span>Contact</span></a></li>
+
 </ul>
 </div>
 
 <script>
 
 
-//function loadUsers() 
-//{
-	//var xhttp;
+function loadUsers() 
+{
+	var xhttp;
 	
-	//if (window.XMLHttpRequest) {
-		//xhttp = new XMLHttpRequest();
-	//} else {
-		//// code for IE6, IE5
-		//xhttp = new ActiveXObject("Microsoft.XMLHTTP");
-	//}
+	if (window.XMLHttpRequest) {
+		xhttp = new XMLHttpRequest();
+	} else {
+		// code for IE6, IE5
+		xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+	}
 	
-	//xhttp.onreadystatechange = function() 
-	//{
-		//if (xhttp.readyState == 4 && xhttp.status == 200) 
-		//{
-			//document.getElementById(".menu").innerHTML += '<li><a href="#">' + xhttp.responseText + '</a></li>';
-		//}
-	//};
-	//xhttp.open("GET", "builder.php?payload=users", true);
-	//xhttp.send();
+	xhttp.onreadystatechange = function() 
+	{
+		if (xhttp.readyState == 4 && xhttp.status == 200) 
+		{
+			document.getElementById("Products").innerHTML += '<li class="last"><a href="#">' + xhttp.responseText + '</a></li>';
+		}
+	};
+	xhttp.open("GET", "builder.php?payload=users", true);
+	xhttp.send();
 }
 
-//loadUsers();
+loadUsers();
 </script>
 
 
