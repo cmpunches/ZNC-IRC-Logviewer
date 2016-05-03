@@ -145,9 +145,9 @@ function getChannels( network )
 					s = encodeURI( vals[i] );
 					if ( i == len - 1 )
 					{
-						document.getElementById("Channels").innerHTML += '<li class="last"><a href="#" onclick="getDates(\'' + s + '\')">' + s + '</a></li>';
+						document.getElementById("Channels").innerHTML += '<li class="last"><a href="#" onclick="getDates(\'' + encodeURI(s) + '\')">' + s + '</a></li>';
 					} else {
-						document.getElementById("Channels").innerHTML += '<li><a href="#" onclick="getDates(\'' + s + '\')">' + s + '</a></li>';
+						document.getElementById("Channels").innerHTML += '<li><a href="#" onclick="getDates(\'' + s + '\')">' + encodeURI(s) + '</a></li>';
 					}
 					document.getElementById("SelectedChannel").innerHTML = s;	
 				}
