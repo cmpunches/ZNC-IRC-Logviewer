@@ -62,7 +62,7 @@ function loadUsers( firstrun )
 
 			document.getElementById("Users").innerHTML = '';
 			document.getElementById("Users").innerHTML += '<li class="last"><a href="#" onclick="getNetworks()">' + xhttp.responseText + '</a></li>';
-			if ( firstrun )
+			if ( firstrun == false)
 			{
 				document.getElementById("SelectedUser").innerHTML = xhttp.responseText;
 				firstrun = false;
