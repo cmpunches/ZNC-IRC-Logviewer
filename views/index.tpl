@@ -92,7 +92,7 @@ function getNetworks( user )
 					{
 						document.getElementById("Networks").innerHTML += '<li class="last"><a href="#" onclick="getChannel()">' + s + '</a></li>';
 					} else {
-						document.getElementById("Networks").innerHTML += '<li><a href="#" onclick="getChannel()">' + s + '</a></li>';
+						document.getElementById("Networks").innerHTML += '<li><a href="#" onclick="getChannel(\'' + s + '\')">' + s + '</a></li>';
 					}
 					document.getElementById("SelectedNetwork").innerHTML = s;	
 				}
