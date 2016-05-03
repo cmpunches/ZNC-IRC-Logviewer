@@ -25,7 +25,7 @@
 	<ul id="Users"></ul>
 	</li>
    
-	<li class='has-sub'><a href='#'><span>Networks</span></a>
+	<li class='has-sub'><a href='#'><span id="SelectedNetwork">Networks</span></a>
 	<ul id = "Networks"></ul>
 	</li>
 	
