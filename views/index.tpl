@@ -62,10 +62,9 @@ function loadUsers( firstrun = false )
 			document.getElementById("Users").innerHTML = '';
 			document.getElementById("Users").innerHTML += '<li class="last"><a href="#" onclick="getNetworks()">' + xhttp.responseText + '</a></li>';
 			console.log(firstrun);
-			if ( firstrun == true)
+			if ( firstrun == false)
 			{
 				document.getElementById("SelectedUser").innerHTML = xhttp.responseText;
-				firstrun = false;
 			}
 		}
 	};
