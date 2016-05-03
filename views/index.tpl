@@ -19,20 +19,17 @@
 
 <div id='cssmenu'>
 <ul>
-   <li class='active'><a href='http://blog.surroindustries.com'><span>SURRO</span></a></li>
+	<li class='active'><a href='http://blog.surroindustries.com'><span>SURRO</span></a></li>
    
-   <li class='has-sub'><a href='#'><span>Users</span></a>
-      <ul id="Users"></ul>
-   </li>
+	<li class='has-sub'><a href='#'><span>Users</span></a>
+	<ul id="Users"></ul>
+	</li>
    
-   <li class='has-sub'><a href='#'><span>Networks</span></a>
-      <ul id = "Networks">
-         <li><a href='#'><span>Company</span></a></li>
-         <li class='last'><a href='#'><span>Contact</span></a></li>
-      </ul>
-   </li>
-   
-   <li class='last'><a href='#'><span>Contact</span></a></li>
+	<li class='has-sub'><a href='#'><span>Networks</span></a>
+	<ul id = "Networks"></ul>
+	</li>
+	
+	<li class='last'><a href='#'><span>Contact</span></a></li>
 
 </ul>
 </div>
@@ -55,7 +52,7 @@ function loadUsers()
 	{
 		if (xhttp.readyState == 4 && xhttp.status == 200) 
 		{
-			document.getElementById("Users").innerHTML += '<li class="last"><a href="#" onclick="getNetworks(' + xhttp.responseText + ')">' + xhttp.responseText + '</a></li>';
+			document.getElementById("Users").innerHTML += '<li class="last"><a href="#" onclick="getNetworks(\'' + xhttp.responseText + '\')">' + xhttp.responseText + '</a></li>';
 		}
 	};
 	xhttp.open("GET", "builder.php?payload=users", true);
