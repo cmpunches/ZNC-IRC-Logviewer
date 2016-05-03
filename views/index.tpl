@@ -57,11 +57,10 @@ function loadUsers()
 	{
 		if (xhttp.readyState == 4 && xhttp.status == 200) 
 		{
-			vals = csv2arr( xhttp.responseText );
+			vals = xhttp.responseText;
 
 			document.getElementById("Users").innerHTML = '';
 			document.getElementById("Users").innerHTML += '<li class="last"><a href="#" onclick="getNetworks()">' + xhttp.responseText + '</a></li>';
-			console.log(firstrun);
 			document.getElementById("SelectedUser").innerHTML = xhttp.responseText;
 		}
 	};
