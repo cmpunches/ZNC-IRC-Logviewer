@@ -14,6 +14,7 @@ switch( trim( $payload ) )
 		$users = getUsers();
 		echo implode(",", $users);
 		break;
+
 	case "networks":
 		if ( isset( $_GET["user"] ) ) 
 		{
@@ -24,6 +25,7 @@ switch( trim( $payload ) )
 			echo( "Invalid request.  No user specified." );
 		}
 		break;
+
 	case "channels":
 		if ( isset( $_GET["user"] ) && isset( $_GET["network"] ) )
 		{
@@ -35,6 +37,7 @@ switch( trim( $payload ) )
 			echo("Need to provide both a valid user and network uri variable.  Either one or both was either invalid or not provided.");
 		}
 		break;
+
 	case "dates":
 		if ( isset( $_GET["user"] ) && isset( $_GET["network"] ) && isset( $_GET["channel"] ) )
 		{
@@ -47,6 +50,7 @@ switch( trim( $payload ) )
 			echo("Need to provide both a valid user, network, and channel uri variable.  At least one was either invalid or not provided.");			
 		}
 		break;
+		
 	case "onelog":
 		if ( isset( $_GET["user"] ) && isset( $_GET["network"] ) && isset( $_GET["channel"] ) && isset( $_GET["log"] ) )
 		{
