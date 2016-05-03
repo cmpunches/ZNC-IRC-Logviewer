@@ -88,7 +88,7 @@ function getNetworks( user )
 				if ( i in vals )
 				{
 					s = vals[i];
-					if ( vals[i] = len )
+					if ( i == len )
 					{
 						document.getElementById("Networks").innerHTML += '<li class="last">';
 					} else {
