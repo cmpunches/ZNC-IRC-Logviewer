@@ -9,12 +9,12 @@ require_once( "inc/apifuncs.php" );
 
 $log_root = '../IRC';
 
-if ( isset( $_GET["user"] ) && isset( $_GET["network"] ) && isset( $_GET["channel"] ) && isset( $_GET["date"] ) )
+if ( isset( $_GET["user"] ) && isset( $_GET["network"] ) && isset( $_GET["channel"] ) && isset( $_GET["log"] ) )
 {
 	$user = $_GET["user"];
 	$network = $_GET["network"];
 	$channel = $_GET["channel"];
-	$date = $_GET["date"];
+	$date = $_GET["log"];
 	getRawLog( $user, $network, $channel, $log );
 } else {
 	echo( "Invalid request.  Either user, network, channel, or date.log was invalid or unspecified." );

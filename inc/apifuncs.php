@@ -3,7 +3,7 @@ function getUsers()
 {
 	$unfilteredUserList		= scandir( $GLOBALS['log_root'] );
 	$unsortedUserList		= array_diff( $unfilteredUserList, array( '..', '.' ) );
-	$userList			= array_values( $unsortedUserList );
+	$userList				= array_values( $unsortedUserList );
 	return $userList;
 }
 
