@@ -236,7 +236,7 @@ function nl2arr( string )
 	return string.split('\n');
 }
 
-loadUsers();
+#loadUsers();
 </script>
 
 
