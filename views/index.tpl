@@ -83,7 +83,7 @@ function getNetworks( user )
 
 			document.getElementById("Networks").innerHTML = '';
 
-			for ( i = 0; i < len; ++i )
+			for ( i = 0; i < len; i++ )
 			{
 				if ( i in vals )
 				{
