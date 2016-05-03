@@ -42,7 +42,7 @@
 <div id= "Content"></div>
 <script>
 
-function loadUsers( firstrun = false ) 
+function loadUsers() 
 {
 	var xhttp;
 	
@@ -62,10 +62,7 @@ function loadUsers( firstrun = false )
 			document.getElementById("Users").innerHTML = '';
 			document.getElementById("Users").innerHTML += '<li class="last"><a href="#" onclick="getNetworks()">' + xhttp.responseText + '</a></li>';
 			console.log(firstrun);
-			if ( firstrun == false)
-			{
-				document.getElementById("SelectedUser").innerHTML = xhttp.responseText;
-			}
+			document.getElementById("SelectedUser").innerHTML = xhttp.responseText;
 		}
 	};
 	xhttp.open("GET", "builder.php?payload=users", true);
@@ -245,7 +242,7 @@ function nl2arr( string )
 	return string.split('\n');
 }
 
-loadUsers( true );
+loadUsers();
 </script>
 
 
