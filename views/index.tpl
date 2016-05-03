@@ -188,7 +188,7 @@ function getDates( channel )
 			{
 				if ( i in vals )
 				{
-					s = encodeHtmlEntity( vals[i] );
+					s = vals[i];
 					if ( i == len - 1 )
 					{
 						document.getElementById("Dates").innerHTML += '<li class="last"><a href="#" onclick="getLog(\'' + s + '\')">' + s + '</a></li>';
@@ -203,22 +203,6 @@ function getDates( channel )
 	xhttp.open("GET", "builder.php?payload=dates&user=" + user + "&network=" + network + "&channel=" + channel, true);
 	xhttp.send();
 }
-
-// encode(decode) html text into html entity
-var decodeHtmlEntity = function(str) {
-  return str.replace(/&#(\d+);/g, function(match, dec) {
-    return String.fromCharCode(dec);
-  });
-};
-
-var encodeHtmlEntity = function(str) {
-  var buf = [];
-  for (var i=str.length-1;i>=0;i--) {
-    buf.unshift(['&#', str[i].charCodeAt(), ';'].join(''));
-  }
-  return buf.join('');
-};
-
 
 function csv2arr( string )
 {
