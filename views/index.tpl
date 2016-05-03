@@ -234,7 +234,7 @@ function getLog( date_log )
 	console.log(user);
 	console.log(network);
 	console.log(channel);
-	console.log(date_log);
+	console.log(encodeURI(date_log));
 	xhttp.open("GET", "logview.php?user=" + user + "&network=" + network + "&channel=" + channel + "&log=" + date_log, true);
 	xhttp.send();
 }
