@@ -226,7 +226,7 @@ function getLog( date_log )
 				if ( i in vals )
 				{
 					s = vals[i];
-					document.getElementById("Content").innerHTML += "<p>" + s + "</p>;
+					document.getElementById("Content").innerHTML += "<p>" + s + "</p>";
 				}
 			}
 		}
