@@ -55,7 +55,7 @@ function loadUsers()
 	{
 		if (xhttp.readyState == 4 && xhttp.status == 200) 
 		{
-			document.getElementById("Users").innerHTML += '<li class="last"><a href="#">' + xhttp.responseText + '</a></li>';
+			document.getElementById("Users").innerHTML += '<li class="last"><a href="#" onclick="getNetworks(' + xhttp.responseText + ')">' + xhttp.responseText + '</a></li>';
 		}
 	};
 	xhttp.open("GET", "builder.php?payload=users", true);
@@ -77,7 +77,7 @@ function getNetworks( user )
 	{
 		if (xhttp.readyState == 4 && xhttp.status == 200) 
 		{
-			document.getElementById("Networks").innerHTML += '<li class="last"><a href="#">' + xhttp.responseText + '</a></li>';
+			document.getElementById("Networks").innerHTML += '<li class="last"><a href="#" onclick=>' + xhttp.responseText + '</a></li>';
 		}
 	};
 	xhttp.open("GET", "builder.php?payload=networks?user=" + user, true);
