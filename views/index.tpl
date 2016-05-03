@@ -30,7 +30,9 @@
 <script>
 
 $(document).ready(function() {
-    $('.menu').dropit();
+    $('.menu').dropit({
+		action: 'hover'
+	});
 });
 
 
