@@ -21,7 +21,7 @@
 <ul>
 	<li class='active'><a href='http://blog.surroindustries.com'><span>SURRO</span></a></li>
    
-	<li class='has-sub'><a href='#'><span>Users</span></a>
+	<li class='has-sub'><a href='#'><span id="SelectedUser">Users</span></a>
 	<ul id="Users"></ul>
 	</li>
    
@@ -53,6 +53,7 @@ function loadUsers()
 		if (xhttp.readyState == 4 && xhttp.status == 200) 
 		{
 			document.getElementById("Users").innerHTML += '<li class="last"><a href="#" onclick="getNetworks(\'' + xhttp.responseText + '\')">' + xhttp.responseText + '</a></li>';
+			document.getElementbyId("SelectedUser").innerHTML = xhttp.responseText;
 		}
 	};
 	xhttp.open("GET", "builder.php?payload=users", true);
