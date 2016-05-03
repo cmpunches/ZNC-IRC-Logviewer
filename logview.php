@@ -5,7 +5,7 @@
 ini_set('display_errors', '1');
 error_reporting(E_ALL);
 
-require_once( "builder.php" );
+require_once( "inc/apifuncs.php" );
 
 $log_root = '../IRC';
 
