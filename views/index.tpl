@@ -36,10 +36,9 @@
 	<li class='last has-sub'><a href='#'><span id="SelectedDate">Select Date</span></a>
 	<ul id = "Dates"></ul>
 	</li>
-		
 </ul>
 </div>
-
+<H1>IRC Log</H1>
 <script>
 
 
