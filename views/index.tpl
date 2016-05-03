@@ -79,6 +79,48 @@ function getNetworks( user )
 		{
 			var vals = csv2arr( xhttp.responseText );
 			var len = vals.length;
+			var i, network;
+
+			document.getElementById("Networks").innerHTML = '';
+
+			for ( i = 0; i < len; i++ )
+			{
+				if ( i in vals )
+				{
+					network = vals[i];
+					if ( i == len - 1 )
+					{
+						document.getElementById("Networks").innerHTML += '<li class="last"><a href="#" onclick="getChannel()">' + network + '</a></li>';
+					} else {
+						document.getElementById("Networks").innerHTML += '<li><a href="#" onclick="getChannel(\'' + network + '\', ' + document.getElementById("SelectedUser") + \')">' + network + '</a></li>';
+					}
+					document.getElementById("SelectedNetwork").innerHTML = s;	
+				}
+			}
+		}
+	};
+	xhttp.open("GET", "builder.php?payload=networks&user=" + user, true);
+	xhttp.send();
+}
+
+
+function getChannels( user, network )
+{
+	var xhttp;
+	
+	if (window.XMLHttpRequest) {
+		xhttp = new XMLHttpRequest();
+	} else {
+		// code for IE6, IE5
+		xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	
+	xhttp.onreadystatechange = function() 
+	{
+		if (xhttp.readyState == 4 && xhttp.status == 200) 
+		{
+			var vals = csv2arr( xhttp.responseText );
+			var len = vals.length;
 			var i, s;
 
 			document.getElementById("Networks").innerHTML = '';
@@ -102,7 +144,6 @@ function getNetworks( user )
 	xhttp.open("GET", "builder.php?payload=networks&user=" + user, true);
 	xhttp.send();
 }
-
 
 function csv2arr( string )
 {
