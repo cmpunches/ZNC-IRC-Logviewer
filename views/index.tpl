@@ -220,13 +220,13 @@ function getLog( date_log )
 			var vals = csv2arr( xhttp.responseText );
 			var len = vals.length;
 			var i, s;
-
+			document.getElementById("Content").innerHTML = '';
 			for ( i = 0; i < len; i++ )
 			{
 				if ( i in vals )
 				{
 					s = vals[i];
-					echo("<p>" + s + "</p>");
+					document.getElementById("Content").innerHTML += "<p>" + s + "</p>;
 				}
 			}
 		}
