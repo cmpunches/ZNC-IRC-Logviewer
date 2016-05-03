@@ -41,9 +41,9 @@
 <H1 id="DumpAreaTitle">ZNC IRC Log Viewer</H1>
 <div id= "Content"></div>
 <script>
+var firstrun = false;
 
-
-function loadUsers() 
+function loadUsers( firstrun ) 
 {
 	var xhttp;
 	
@@ -59,9 +59,14 @@ function loadUsers()
 		if (xhttp.readyState == 4 && xhttp.status == 200) 
 		{
 			vals = csv2arr( xhttp.responseText );
+
 			document.getElementById("Users").innerHTML = '';
 			document.getElementById("Users").innerHTML += '<li class="last"><a href="#" onclick="getNetworks()">' + xhttp.responseText + '</a></li>';
-			document.getElementById("SelectedUser").innerHTML = xhttp.responseText;
+			if ( firstrun )
+			{
+				document.getElementById("SelectedUser").innerHTML = xhttp.responseText;
+				firstrun = false;
+			}
 		}
 	};
 	xhttp.open("GET", "builder.php?payload=users", true);
