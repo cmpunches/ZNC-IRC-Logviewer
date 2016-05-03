@@ -14,7 +14,7 @@ if ( isset( $_GET["user"] ) && isset( $_GET["network"] ) && isset( $_GET["channe
 	$user = $_GET["user"];
 	$network = $_GET["network"];
 	$channel = $_GET["channel"];
-	$date = $_GET["log"];
+	$log = $_GET["log"];
 	getRawLog( $user, $network, $channel, $log );
 } else {
 	echo( "Invalid request.  Either user, network, channel, or date.log was invalid or unspecified." );
