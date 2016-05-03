@@ -38,7 +38,7 @@
 	</li>
 </ul>
 </div>
-<H1>IRC Log</H1>
+<H1 id="DumpAreaTitle">ZNC IRC Log Viewer</H1>
 <div id= "Content"></div>
 <script>
 
@@ -207,6 +207,9 @@ function getLog( date_log )
 	var user = document.getElementById("SelectedUser").innerHTML;
 	var network = document.getElementById("SelectedNetwork").innerHTML;
 	var channel = document.getElementById("SelectedChannel").innerHTML;
+
+	document.getElementById("DumpAreaTitle").innerHTML = "Viewing records for " + date_log + " / " + channel;
+
 	
 	if (window.XMLHttpRequest) {
 		xhttp = new XMLHttpRequest();
