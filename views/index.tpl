@@ -33,6 +33,10 @@
 	<ul id = "Channels"></ul>
 	</li>
 	
+	<li class='has-sub'><a href='#'><span id="SelectedDate">Dates</span></a>
+	<ul id = "Dates"></ul>
+	</li>
+		
 	<li class='last'><a href='#'><span>Contact</span></a></li>
 
 </ul>
@@ -141,9 +145,9 @@ function getChannels( network )
 					s = encodeHtmlEntity( vals[i] );
 					if ( i == len - 1 )
 					{
-						document.getElementById("Channels").innerHTML += '<li class="last"><a href="#" onclick="getDates()">' + s + '</a></li>';
+						document.getElementById("Channels").innerHTML += '<li class="last"><a href="#" onclick="getDates(\'' + s + '\')">' + s + '</a></li>';
 					} else {
-						document.getElementById("Channels").innerHTML += '<li><a href="#" onclick="getDates()">' + s + '</a></li>';
+						document.getElementById("Channels").innerHTML += '<li><a href="#" onclick="getDates(\'' + s + '\')">' + s + '</a></li>';
 					}
 					document.getElementById("SelectedChannel").innerHTML = s;	
 				}
@@ -151,6 +155,52 @@ function getChannels( network )
 		}
 	};
 	xhttp.open("GET", "builder.php?payload=channels&user=" + user + "&network=" + network, true);
+	xhttp.send();
+}
+
+
+function getDates( channel )
+{
+	var xhttp;
+	document.getElementById("SelectedChannel").innerHTML = channel;
+	var user = document.getElementById("SelectedUser").innerHTML;
+	var network = document.getElementById("SelectedNetwork").innerHTML;
+	
+	
+	if (window.XMLHttpRequest) {
+		xhttp = new XMLHttpRequest();
+	} else {
+		// code for IE6, IE5
+		xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	
+	xhttp.onreadystatechange = function() 
+	{
+		if (xhttp.readyState == 4 && xhttp.status == 200) 
+		{
+			var vals = csv2arr( xhttp.responseText );
+			var len = vals.length;
+			var i, s;
+
+			document.getElementById("Dates").innerHTML = '';
+
+			for ( i = 0; i < len; i++ )
+			{
+				if ( i in vals )
+				{
+					s = encodeHtmlEntity( vals[i] );
+					if ( i == len - 1 )
+					{
+						document.getElementById("Dates").innerHTML += '<li class="last"><a href="#" onclick="getLog(\'' + s + '\')">' + s + '</a></li>';
+					} else {
+						document.getElementById("Dates").innerHTML += '<li><a href="#" onclick="getLog(\'' + s + '\')">' + s + '</a></li>';
+					}
+					document.getElementById("SelectedDate").innerHTML = s;	
+				}
+			}
+		}
+	};
+	xhttp.open("GET", "builder.php?payload=dates&user=" + user + "&network=" + network + "&channel=" + channel, true);
 	xhttp.send();
 }
 
