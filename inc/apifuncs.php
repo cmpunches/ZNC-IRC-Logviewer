@@ -36,7 +36,8 @@ function getRawLog( $user, $network, $channel, $log )
 	$logfilepath = $GLOBALS['log_root'] . '/' . $user . '/' . $network . '/' . $channel . '/' . $log;
 	if ( file_exists($logfilepath) && is_file( $logfilepath )  )
 	{
-		readfile($logfilepath);
+		$contents = file_get_contents($logfilepath);
+		echo(htmlspecialchars($contents));
 	} else {
 		echo("Log either doesn't exist or isn't a file:  $logfilepath");
 	}
