@@ -59,7 +59,7 @@ switch( trim( $payload ) )
 			$user		= $_GET["user"];
 			$network	= $_GET["network"];
 			$channel	= htmlspecialchars( $_GET["channel"] );
-			$log		= htmlspecialchars( $_GET["log"] );
+			$log		= $_GET["log"];
 			getRawLog( $user, $network, $channel, $log );
 		} else {
 			echo("Need to provide both a valid user, network, channel, and log uri variable.  At least one was either invalid or not provided.");
