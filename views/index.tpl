@@ -77,7 +77,7 @@ function getNetworks( user )
 			document.getElementById("Networks").innerHTML += '<li class="last"><a href="#" onclick="getChannel()">' + xhttp.responseText + '</a></li>';
 		}
 	};
-	xhttp.open("GET", "builder.php?payload=networks?user=" + user, true);
+	xhttp.open("GET", "builder.php?payload=networks&user=" + user, true);
 	xhttp.send();
 }
 
