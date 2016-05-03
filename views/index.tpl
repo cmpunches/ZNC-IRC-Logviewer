@@ -232,7 +232,7 @@ function getLog( date_log )
 		}
 	};
 
-	xhttp.open("GET", "logview.php?user=" + user + "&network=" + network + "&channel=" + encodeURI(channel) + "&log=" + date_log, true);
+	xhttp.open("GET", "logview.php?user=" + user + "&network=" + network + "&channel=" + encodeURIComponent(channel) + "&log=" + date_log, true);
 	xhttp.send();
 }
 
