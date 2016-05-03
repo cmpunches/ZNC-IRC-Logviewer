@@ -41,7 +41,7 @@
 <H1 id="DumpAreaTitle">ZNC IRC Log Viewer</H1>
 <div id= "Content"></div>
 <script>
-var firstrun = false;
+var firstrun = true;
 
 function loadUsers( firstrun ) 
 {
