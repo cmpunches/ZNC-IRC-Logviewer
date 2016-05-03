@@ -217,7 +217,7 @@ function getLog( date_log )
 	{
 		if (xhttp.readyState == 4 && xhttp.status == 200) 
 		{
-			var vals = csv2arr( xhttp.responseText );
+			var vals = nl2arr( xhttp.responseText );
 			var len = vals.length;
 			var i, s;
 			document.getElementById("Content").innerHTML = '';
@@ -238,6 +238,11 @@ function getLog( date_log )
 function csv2arr( string )
 {
 	return string.split(',');
+}
+
+function nl2arr( string )
+{
+	return string.split('\n');
 }
 
 loadUsers();
