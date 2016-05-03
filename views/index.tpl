@@ -8,17 +8,16 @@
 <body>
 
  <div class="dropdown">
-  <button onclick="myFunction()" class="dropbtn">Dropdown</button>
-  <div id="myDropdown" class="dropdown-content">
-    <a href="#">Link 1</a>
-    <a href="#">Link 2</a>
-    <a href="#">Link 3</a>
-  </div>
+  <button onclick="togglePulldown(this)" class="dropbtn">Dropdown</button>
+
+  <div id="userDropdown" class="dropdown-content"></div>
+  <div id="myDropdown" class="dropdown-content"></div>
+
 </div>
 
 <script>
 
-function loadDoc() 
+function loadUsers() 
 {
 	var xhttp;
 	
@@ -33,33 +32,36 @@ function loadDoc()
 	{
 		if (xhttp.readyState == 4 && xhttp.status == 200) 
 		{
-			document.getElementById("myDropdown").innerHTML += '<a href="#">' + xhttp.responseText + '</a>';
+			document.getElementById("userDropdown").innerHTML += '<a href="#">' + xhttp.responseText + '</a>';
 		}
 	};
 	xhttp.open("GET", "builder.php?payload=users", true);
 	xhttp.send();
 }
 
-function myFunction() {
-    document.getElementById("myDropdown").classList.toggle("show");
+function togglePulldown() {
+    this.classList.toggle("show");
 }
 
 // Close the dropdown menu if the user clicks outside of it
-window.onclick = function(event) {
-  if (!event.target.matches('.dropbtn')) {
-
-    var dropdowns = document.getElementsByClassName("dropdown-content");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
-      }
-    }
-  }
+window.onclick = function(event)
+{
+	if (!event.target.matches('.dropbtn'))
+	{
+		var dropdowns = document.getElementsByClassName("dropdown-content");
+		var i;
+		for (i = 0; i < dropdowns.length; i++) 
+		{
+			var openDropdown = dropdowns[i];
+			if (openDropdown.classList.contains('show')) 
+			{
+				openDropdown.classList.remove('show');
+			}
+		}
+	}
 }
 
-loadDoc();
+loadUsers();
 </script>
 
 
