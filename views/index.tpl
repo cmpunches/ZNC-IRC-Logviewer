@@ -128,7 +128,7 @@ function getChannels()
 	{
 		if (xhttp.readyState == 4 && xhttp.status == 200) 
 		{
-			var vals = csv2arr( xhttp.responseText );
+			var vals = csv2arr( encodeHtmlEntity( xhttp.responseText ) );
 			var len = vals.length;
 			var i, s;
 
@@ -153,6 +153,22 @@ function getChannels()
 	xhttp.open("GET", "builder.php?payload=channels&user=" + user + "&network=" + network, true);
 	xhttp.send();
 }
+
+// encode(decode) html text into html entity
+var decodeHtmlEntity = function(str) {
+  return str.replace(/&#(\d+);/g, function(match, dec) {
+    return String.fromCharCode(dec);
+  });
+};
+
+var encodeHtmlEntity = function(str) {
+  var buf = [];
+  for (var i=str.length-1;i>=0;i--) {
+    buf.unshift(['&#', str[i].charCodeAt(), ';'].join(''));
+  }
+  return buf.join('');
+};
+
 
 function csv2arr( string )
 {
