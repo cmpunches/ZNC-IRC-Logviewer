@@ -10,6 +10,7 @@
 <script src="inc/dmenu.js"></script>
 
 <link rel="stylesheet" href="css/dmenu.css" />
+<link rel="stylesheet" href="css/irclogs.css" />
 
 <title></title>
 
