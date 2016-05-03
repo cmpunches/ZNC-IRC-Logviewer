@@ -73,7 +73,8 @@ function getNetworks()
 	var xhttp;
 	var user = document.getElementById("SelectedUser").innerHTML;
 	
-	if (window.XMLHttpRequest) {
+	if (window.XMLHttpRequest) 
+	{
 		xhttp = new XMLHttpRequest();
 	} else {
 		// code for IE6, IE5
@@ -162,7 +163,8 @@ function getDates( channel )
 	var user = document.getElementById("SelectedUser").innerHTML;
 	var network = document.getElementById("SelectedNetwork").innerHTML;
 	
-	if (window.XMLHttpRequest) {
+	if (window.XMLHttpRequest) 
+	{
 		xhttp = new XMLHttpRequest();
 	} else {
 		// code for IE6, IE5
@@ -218,7 +220,7 @@ function getLog( date_log )
 		if (xhttp.readyState == 4 && xhttp.status == 200) 
 		{
 			document.getElementById("Content").innerHTML = '';
-			document.getElementById("Content").innerHTML += "<div class=\"ircLogDump\" id=\"ircLogDump\">" + xhttp.responseText + "</div>";
+			document.getElementById("Content").innerHTML += xhttp.responseText;
 		}
 	};
 

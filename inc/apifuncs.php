@@ -49,10 +49,10 @@ function getPrettyLog( $user, $network, $channel, $log )
 	if ( file_exists($logfilepath) && is_file( $logfilepath )  )
 	{
 		$contents = file($logfilepath);
-		echo("<div class="ircLogDump" id="ircLogDump">");
+		echo("<div class=\"ircLogDump\" id=\"ircLogDump\">");
 		foreach( $contents as $entry )
 		{
-			echo("<p class="IRCEntry" id="IRCEntry">" . htmlspecialchars($entry) . "</p>");
+			echo("<p class=\"IRCEntry\" id=\"IRCEntry\">" . htmlspecialchars($entry) . "</p>");
 		}
 		echo("</div>");
 
