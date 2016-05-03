@@ -8,7 +8,7 @@
 
 <div id="demo"></div>
 
-<button type="button" onclick="loadDoc()">Change Content</button>
+<button type="button" onclick="loadDoc()">Get Users</button>
 
 <script>
 
