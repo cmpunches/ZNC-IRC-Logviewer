@@ -1,39 +1,43 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+<meta charset='utf-8'>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
 <script src="inc/jquery-2.2.3.min.js"></script>
-<link rel="stylesheet" type="text/css" type="text/css" href="css/browse.css" />
-<link rel="stylesheet" href="css/dropit.css" />
+<script src="inc/dmenu.js"></script>
+
 <link rel="stylesheet" href="css/dmenu.css" />
+
 <title></title>
+
 </head>
 
 <body>
 
-<ul class="menu">
-    <li>
-        <a href="#">Dropdown</a>
-        <ul>
-            <li><a href="#">Some Action 1</a></li>
-            <li><a href="#">Some Action 2</a></li>
-            <li><a href="#">Some Action 3</a></li>
-            <li><a href="#">Some Action 4</a></li>
-        </ul>
-    </li>
+<div id='cssmenu'>
+<ul>
+   <li class='active'><a href='#'><span>Home</span></a></li>
+   <li class='has-sub'><a href='#'><span>Products</span></a>
+      <ul>
+         <li><a href='#'><span>Product 1</span></a></li>
+         <li><a href='#'><span>Product 2</span></a></li>
+         <li class='last'><a href='#'><span>Product 3</span></a></li>
+      </ul>
+   </li>
+   <li class='has-sub'><a href='#'><span>About</span></a>
+      <ul>
+         <li><a href='#'><span>Company</span></a></li>
+         <li class='last'><a href='#'><span>Contact</span></a></li>
+      </ul>
+   </li>
+   <li class='last'><a href='#'><span>Contact</span></a></li>
 </ul>
-
-
-
-
-
+</div>
 
 <script>
-
-$(document).ready(function() {
-    $('.menu').dropit({
-		action: 'hover'
-	});
-});
 
 
 //function loadUsers() 
@@ -57,28 +61,6 @@ $(document).ready(function() {
 	//xhttp.open("GET", "builder.php?payload=users", true);
 	//xhttp.send();
 }
-
-//function togglePulldown(self) {
-    //this.toggle("show");
-//}
-
-//// Close the dropdown menu if the user clicks outside of it
-//window.onclick = function(event)
-//{
-	//if (!event.target.matches('.dropbtn'))
-	//{
-		//var dropdowns = document.getElementsByClassName("dropdown-content");
-		//var i;
-		//for (i = 0; i < dropdowns.length; i++) 
-		//{
-			//var openDropdown = dropdowns[i];
-			//if (openDropdown.classList.contains('show')) 
-			//{
-				//openDropdown.classList.remove('show');
-			//}
-		//}
-	//}
-//}
 
 //loadUsers();
 </script>
