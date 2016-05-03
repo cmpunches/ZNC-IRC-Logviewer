@@ -142,7 +142,7 @@ function getChannels( network )
 			{
 				if ( i in vals )
 				{
-					s = encodeURI( vals[i] );
+					s = encodeURIcomponent( vals[i] );
 					if ( i == len - 1 )
 					{
 						document.getElementById("Channels").innerHTML += '<li class="last"><a href="#" onclick="getDates(\'' + encodeURI(s) + '\')">' + s + '</a></li>';
