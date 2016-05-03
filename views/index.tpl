@@ -128,7 +128,7 @@ function getChannels( network )
 	{
 		if (xhttp.readyState == 4 && xhttp.status == 200) 
 		{
-			var vals = csv2arr( encodeHtmlEntity( xhttp.responseText ) );
+			var vals = csv2arr( xhttp.responseText );
 			var len = vals.length;
 			var i, s;
 
@@ -138,7 +138,7 @@ function getChannels( network )
 			{
 				if ( i in vals )
 				{
-					s = vals[i];
+					s = encodeHtmlEntity( vals[i] );
 					if ( i == len - 1 )
 					{
 						document.getElementById("Channels").innerHTML += '<li class="last"><a href="#" onclick="getDates()">' + s + '</a></li>';
