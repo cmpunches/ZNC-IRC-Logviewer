@@ -79,7 +79,7 @@ function getNetworks( user )
 		{
 			var vals = csv2arr( xhttp.responseText );
 			var len = vals.length;
-			var i, network;
+			var i, s;
 
 			document.getElementById("Networks").innerHTML = '';
 
@@ -87,12 +87,12 @@ function getNetworks( user )
 			{
 				if ( i in vals )
 				{
-					network = vals[i];
+					s = vals[i];
 					if ( i == len - 1 )
 					{
-						document.getElementById("Networks").innerHTML += '<li class="last"><a href="#" onclick="getChannel()">' + network + '</a></li>';
+						document.getElementById("Networks").innerHTML += '<li class="last"><a href="#" onclick="getChannels(\'' + s + '\')">' + s + '</a></li>';
 					} else {
-						document.getElementById("Networks").innerHTML += '<li><a href="#" onclick="getChannel(\'' + network + '\', ' + document.getElementById("SelectedUser").innerHTML + \')">' + network + '</a></li>';
+						document.getElementById("Networks").innerHTML += '<li><a href="#" onclick="getChannels(\'' + s + '\')">' + s + '</a></li>';
 					}
 					document.getElementById("SelectedNetwork").innerHTML = s;	
 				}
@@ -104,46 +104,46 @@ function getNetworks( user )
 }
 
 
-//function getChannels( user, network )
-//{
-	//var xhttp;
+function getChannels( user )
+{
+	var xhttp;
 	
-	//if (window.XMLHttpRequest) {
-		//xhttp = new XMLHttpRequest();
-	//} else {
-		//// code for IE6, IE5
-		//xhttp = new ActiveXObject("Microsoft.XMLHTTP");
-	//}
+	if (window.XMLHttpRequest) {
+		xhttp = new XMLHttpRequest();
+	} else {
+		// code for IE6, IE5
+		xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+	}
 	
-	//xhttp.onreadystatechange = function() 
-	//{
-		//if (xhttp.readyState == 4 && xhttp.status == 200) 
-		//{
-			//var vals = csv2arr( xhttp.responseText );
-			//var len = vals.length;
-			//var i, s;
+	xhttp.onreadystatechange = function() 
+	{
+		if (xhttp.readyState == 4 && xhttp.status == 200) 
+		{
+			var vals = csv2arr( xhttp.responseText );
+			var len = vals.length;
+			var i, s;
 
-			//document.getElementById("Networks").innerHTML = '';
+			document.getElementById("Networks").innerHTML = '';
 
-			//for ( i = 0; i < len; i++ )
-			//{
-				//if ( i in vals )
-				//{
-					//s = vals[i];
-					//if ( i == len - 1 )
-					//{
-						//document.getElementById("Networks").innerHTML += '<li class="last"><a href="#" onclick="getChannel()">' + s + '</a></li>';
-					//} else {
-						//document.getElementById("Networks").innerHTML += '<li><a href="#" onclick="getChannel(\'' + s + '\')">' + s + '</a></li>';
-					//}
-					//document.getElementById("SelectedNetwork").innerHTML = s;	
-				//}
-			//}
-		//}
-	//};
-	//xhttp.open("GET", "builder.php?payload=networks&user=" + user, true);
-	//xhttp.send();
-//}
+			for ( i = 0; i < len; i++ )
+			{
+				if ( i in vals )
+				{
+					s = vals[i];
+					if ( i == len - 1 )
+					{
+						document.getElementById("Networks").innerHTML += '<li class="last"><a href="#" onclick="getChannel()">' + s + '</a></li>';
+					} else {
+						document.getElementById("Networks").innerHTML += '<li><a href="#" onclick="getChannel(\'' + s + '\')">' + s + '</a></li>';
+					}
+					document.getElementById("SelectedNetwork").innerHTML = s;	
+				}
+			}
+		}
+	};
+	xhttp.open("GET", "builder.php?payload=networks&user=" + user, true);
+	xhttp.send();
+}
 
 function csv2arr( string )
 {

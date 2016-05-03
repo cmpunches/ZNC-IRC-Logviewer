@@ -54,13 +54,13 @@
   display: block;
 }
 #cssmenu > ul li.has-sub > a {
-  background-image: url('img/caret.png');
+  background-image: url('../img/caret.png');
   background-repeat: no-repeat;
   background-position: 90% -95%;
 }
 #cssmenu > ul li.has-sub > a.active,
 #cssmenu > ul li.has-sub > a:hover {
-  background: #d80041 url('img/caret.png') no-repeat;
+  background: #d80041 url('../img/caret.png') no-repeat;
   background-position: 90% 195%;
 }
 #cssmenu > ul li a {
@@ -84,7 +84,7 @@
     display: block;
   }
   #cssmenu > ul li#responsive-tab a {
-    background: url('img/menu.png') no-repeat;
+    background: url('../img/menu.png') no-repeat;
     background-position: 95% -35%;
   }
   #cssmenu > ul li#responsive-tab a:hover {
