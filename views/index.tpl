@@ -21,19 +21,19 @@
 <ul>
 	<li class='active'><a href='http://blog.surroindustries.com'><span>SURRO</span></a></li>
    
-	<li class='has-sub'><a href='#'><span id="SelectedUser">Users</span></a>
+	<li class='has-sub'><a href='#'><span id="SelectedUser">Select User</span></a>
 	<ul id="Users"></ul>
 	</li>
    
-	<li class='has-sub'><a href='#'><span id="SelectedNetwork">Networks</span></a>
+	<li class='has-sub'><a href='#'><span id="SelectedNetwork">Select Network</span></a>
 	<ul id = "Networks"></ul>
 	</li>
 
-	<li class='has-sub'><a href='#'><span id="SelectedChannel">Channels</span></a>
+	<li class='has-sub'><a href='#'><span id="SelectedChannel">Select Channel</span></a>
 	<ul id = "Channels"></ul>
 	</li>
 	
-	<li class='last has-sub'><a href='#'><span id="SelectedDate">Dates</span></a>
+	<li class='last has-sub'><a href='#'><span id="SelectedDate">Select Date</span></a>
 	<ul id = "Dates"></ul>
 	</li>
 		
@@ -101,7 +101,6 @@ function getNetworks()
 					} else {
 						document.getElementById("Networks").innerHTML += '<li><a href="#" onclick="getChannels(\'' + s + '\')">' + s + '</a></li>';
 					}
-					document.getElementById("SelectedNetwork").innerHTML = s;	
 				}
 			}
 		}
@@ -192,7 +191,6 @@ function getDates( channel )
 					} else {
 						document.getElementById("Dates").innerHTML += '<li><a href="#" onclick="getLog(\'' + s + '\')">' + s + '</a></li>';
 					}
-					document.getElementById("SelectedDate").innerHTML = s;	
 				}
 			}
 		}
