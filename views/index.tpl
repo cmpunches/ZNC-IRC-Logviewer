@@ -33,7 +33,7 @@ function loadDoc()
 	{
 		if (xhttp.readyState == 4 && xhttp.status == 200) 
 		{
-			document.getElementById("myDropdown").innerHTML = xhttp.responseText;
+			document.getElementById("myDropdown").innerHTML += '<a href="#">' + xhttp.responseText + '</a>';
 		}
 	};
 	xhttp.open("GET", "builder.php?payload=users", true);
