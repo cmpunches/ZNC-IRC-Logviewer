@@ -28,6 +28,10 @@
 	<li class='has-sub'><a href='#'><span id="SelectedNetwork">Networks</span></a>
 	<ul id = "Networks"></ul>
 	</li>
+
+	<li class='has-sub'><a href='#'><span id="SelectedChannel">Channels</span></a>
+	<ul id = "Channels"></ul>
+	</li>
 	
 	<li class='last'><a href='#'><span>Contact</span></a></li>
 
@@ -54,7 +58,7 @@ function loadUsers()
 		{
 			vals = csv2arr( xhttp.responseText );
 			document.getElementById("Users").innerHTML = '';
-			document.getElementById("Users").innerHTML += '<li class="last"><a href="#" onclick="getNetworks(\'' + xhttp.responseText + '\')">' + xhttp.responseText + '</a></li>';
+			document.getElementById("Users").innerHTML += '<li class="last"><a href="#" onclick="getNetworks()">' + xhttp.responseText + '</a></li>';
 			document.getElementById("SelectedUser").innerHTML = xhttp.responseText;
 		}
 	};
@@ -62,9 +66,10 @@ function loadUsers()
 	xhttp.send();
 }
 
-function getNetworks( user )
+function getNetworks()
 {
 	var xhttp;
+	var user = document.getElementById("SelectedUser").innerHTML;
 	
 	if (window.XMLHttpRequest) {
 		xhttp = new XMLHttpRequest();
@@ -90,9 +95,9 @@ function getNetworks( user )
 					s = vals[i];
 					if ( i == len - 1 )
 					{
-						document.getElementById("Networks").innerHTML += '<li class="last"><a href="#" onclick="getChannels(\'' + s + '\')">' + s + '</a></li>';
+						document.getElementById("Networks").innerHTML += '<li class="last"><a href="#" onclick="getChannels()">' + s + '</a></li>';
 					} else {
-						document.getElementById("Networks").innerHTML += '<li><a href="#" onclick="getChannels(\'' + s + '\')">' + s + '</a></li>';
+						document.getElementById("Networks").innerHTML += '<li><a href="#" onclick="getChannels()">' + s + '</a></li>';
 					}
 					document.getElementById("SelectedNetwork").innerHTML = s;	
 				}
@@ -104,9 +109,13 @@ function getNetworks( user )
 }
 
 
-function getChannels( user )
+function getChannels()
 {
 	var xhttp;
+	var network = document.getElementById("SelectedNetwork").innerHTML;
+	var user = document.getElementById("SelectedUser").innerHTML;
+	
+	
 	
 	if (window.XMLHttpRequest) {
 		xhttp = new XMLHttpRequest();
@@ -123,7 +132,7 @@ function getChannels( user )
 			var len = vals.length;
 			var i, s;
 
-			document.getElementById("Networks").innerHTML = '';
+			document.getElementById("Channels").innerHTML = '';
 
 			for ( i = 0; i < len; i++ )
 			{
@@ -132,16 +141,16 @@ function getChannels( user )
 					s = vals[i];
 					if ( i == len - 1 )
 					{
-						document.getElementById("Networks").innerHTML += '<li class="last"><a href="#" onclick="getChannel()">' + s + '</a></li>';
+						document.getElementById("Channels").innerHTML += '<li class="last"><a href="#" onclick="getDates()">' + s + '</a></li>';
 					} else {
-						document.getElementById("Networks").innerHTML += '<li><a href="#" onclick="getChannel(\'' + s + '\')">' + s + '</a></li>';
+						document.getElementById("Channels").innerHTML += '<li><a href="#" onclick="getDates()">' + s + '</a></li>';
 					}
-					document.getElementById("SelectedNetwork").innerHTML = s;	
+					document.getElementById("SelectedChannel").innerHTML = s;	
 				}
 			}
 		}
 	};
-	xhttp.open("GET", "builder.php?payload=networks&user=" + user, true);
+	xhttp.open("GET", "builder.php?payload=channels&user=" + user + "&network=" + network, true);
 	xhttp.send();
 }
 
