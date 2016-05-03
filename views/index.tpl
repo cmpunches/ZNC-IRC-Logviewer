@@ -40,7 +40,7 @@ function loadUsers()
 }
 
 function togglePulldown() {
-    this.classList.toggle("show");
+    this.toggle("show");
 }
 
 // Close the dropdown menu if the user clicks outside of it
