@@ -62,6 +62,7 @@ function loadUsers()
 			document.getElementById("Users").innerHTML = '';
 			document.getElementById("Users").innerHTML += '<li class="last"><a href="#" onclick="getNetworks()">' + xhttp.responseText + '</a></li>';
 			document.getElementById("SelectedUser").innerHTML = xhttp.responseText;
+			getNetworks();
 		}
 	};
 	xhttp.open("GET", "builder.php?payload=users", true);
