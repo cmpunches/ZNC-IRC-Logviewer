@@ -210,7 +210,7 @@ function getLog( date_log )
 	var network = document.getElementById("SelectedNetwork").innerHTML;
 	var channel = document.getElementById("SelectedChannel").innerHTML;
 
-	document.getElementById("DumpAreaTitle").innerHTML = "<a href=\"http://www.surroindustries.com/SURRO-IRC-Logviewer/logview.php?user=" + user + "&network=" + network + "&channel=" + encodeURIComponent(channel) + "&log=" + date_log + "\ >Viewing records for " + date_log + " / " + channel + "</a>";
+	document.getElementById("DumpAreaTitle").innerHTML = "<a href=\"http://www.surroindustries.com/SURRO-IRC-Logviewer/logview.php?user=" + user + "&network=" + network + "&channel=" + encodeURIComponent(channel) + "&log=" + date_log + "\">Viewing records for " + date_log + " / " + channel + "</a>";
 
 	
 	if (window.XMLHttpRequest) {
