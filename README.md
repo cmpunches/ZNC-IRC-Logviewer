@@ -1,2 +1,2 @@
-Log viewer for ZNC by Alias Phanes @ SURRO INDUSTRIES
+Log viewer for ZNC by Chris Punches
 2016
